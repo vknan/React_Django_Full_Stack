@@ -1,14 +1,13 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField
 from django_ckeditor_5.fields import CKEditor5Field
 
 # Create your models here.
 
-class Article(models.Model):
-    title=models.CharField('Title', max_length=200)
-    text=CKEditor5Field('Text', config_name='extends')
+# class Article(models.Model):
+#     title=models.CharField('Title', max_length=200)
+#     text=CKEditor5Field('Text', config_name='extends')
 
 
 class Course(models.Model):
@@ -43,7 +42,7 @@ class Post(models.Model):
     title = models.CharField(max_length =255)
     thumbnail = models.ImageField(upload_to = 'post/thumbnail')
 
-    description = CKEditor5Field('Text', config_name='extends')
+    description = CKEditor5Field('Text', config_name='extends', default = 'Enter text here')
     tags = models.CharField(max_length=255)
 
     posted_at = models.DateField(default = datetime.now)  
@@ -66,9 +65,6 @@ class Comment(models.Model):
     comment = models.TextField()
     commented_at = models.DateTimeField(default= datetime.now)
     is_resolved = (models.BooleanField(default = False))
-
-
-
     def __str__(self):
         return self.email
     class Meta:

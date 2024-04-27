@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from django_ckeditor_5.widgets import CKEditor5Widget
+
 # # Unregister your User model
 # admin.site.unregister(User)
 # Register your models here.
@@ -9,10 +9,10 @@ from django_ckeditor_5.widgets import CKEditor5Widget
 
 
 
-class ArticleAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.TextField: {'widget': CKEditor5Widget}
-    }
+# class ArticleAdmin(admin.ModelAdmin):
+#     formfield_overrides = {
+#         models.TextField: {'widget': CKEditor5Widget}
+#     }
 
 
 
@@ -38,7 +38,7 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('contacted_date', 'is_resolved')
     list_editable = ('is_resolved',)
 
-admin.site.register(Article, ArticleAdmin)
+# admin.site.register(Article, ArticleAdmin)
 admin.site.register(Course, CourseAdmin) 
 admin.site.register(Category)
 admin.site.register(Post, PostAdmin)

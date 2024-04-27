@@ -33,35 +33,31 @@ class CourseDelete(generics.DestroyAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
+class ckeditor_5_upload_file_view():
+    def ck_editor_5_upload_file(request):
+        if request.method == 'POST' and request.FILES.get('upload'):
+            uploaded_file = request.FILES['upload']
 
+            # Generate a unique filename using slugified version of the original filename
+            filename = slugify(uploaded_file.name)
 
+            # Save the uploaded file to the 'post/images/' directory within MEDIA_ROOT
+            file_path = f'post/{filename}'  # Relative path within 'media' directory
+            full_file_path = settings.MEDIA_ROOT + file_path  # Full absolute path
 
+            # Write the file to the filesystem
+            with open(full_file_path, 'wb') as file:
+                for chunk in uploaded_file.chunks():
+                    file.write(chunk)
 
+            # Construct the URL to access the uploaded file publicly
+            public_url = settings.MEDIA_URL + file_path  # Full URL starting from MEDIA_URL
 
-def ck_editor_5_upload_file(request):
-    if request.method == 'POST' and request.FILES.get('upload'):
-        uploaded_file = request.FILES['upload']
+            # Return a JSON response with the uploaded file details
+            return JsonResponse({'uploaded': True, 'url': public_url})
 
-        # Generate a unique filename using slugified version of the original filename
-        filename = slugify(uploaded_file.name)
-
-        # Save the uploaded file to the 'post/images/' directory within MEDIA_ROOT
-        file_path = f'post/{filename}'  # Relative path within 'media' directory
-        full_file_path = settings.MEDIA_ROOT + file_path  # Full absolute path
-
-        # Write the file to the filesystem
-        with open(full_file_path, 'wb') as file:
-            for chunk in uploaded_file.chunks():
-                file.write(chunk)
-
-        # Construct the URL to access the uploaded file publicly
-        public_url = settings.MEDIA_URL + file_path  # Full URL starting from MEDIA_URL
-
-        # Return a JSON response with the uploaded file details
-        return JsonResponse({'uploaded': True, 'url': public_url})
-
-    # If no file was uploaded or request method is not POST, return failure response
-    return JsonResponse({'uploaded': False}, status=400)
+        # If no file was uploaded or request method is not POST, return failure response
+        return JsonResponse({'uploaded': False}, status=400)
 
 
 #==============================Without Login============================
