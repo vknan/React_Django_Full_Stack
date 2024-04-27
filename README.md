@@ -4,3 +4,10 @@ This is a Full Stack React Django Application
 # Running Django Application
 1. Activate Virtual Environment by using terminal command `source myenv/Scripts/activate`
 2. run django server `python manage.py runserver --settings=myproject.settings.development`
+
+Api End points
+1. api/courses/
+2. api/courses/2
+3. api/courses/3
+4. api/courses/4
+5. api/courses/5
