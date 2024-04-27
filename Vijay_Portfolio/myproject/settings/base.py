@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "ckeditor",
     "newsletters",
     "rest_framework",
+    "corsheaders",
     # "django.contrib.sites",
     # 'cms',
     # 'menus',
@@ -53,9 +54,18 @@ INSTALLED_APPS = [
     # "MyAppConfig",
 ]
 SITE_ID = 1
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Example: React frontend URL
+    # Add more origins as needed
+]
+
+# Allow credentials such as cookies to be included in cross-origin requests
+CORS_ALLOW_CREDENTIALS = True
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",

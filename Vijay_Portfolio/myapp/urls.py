@@ -27,7 +27,7 @@ urlpatterns = [
     path('termsandconditions/', views.pages.termsandconditions, name = 'termsandconditions'),
     path('privacypolicy/', views.pages.privacypolicy, name = 'privacypolicy'),
     path('refundpolicy/', views.pages.refundpolicy, name = 'refundpolicy'),
-    
+    path('ckeditor/upload/', views.ck_editor_5_upload_file, name='ck_editor_5_upload_file'),
 
     # path('accounts/password-reset/', auth_views.PasswordResetView.as_view(template_name='templates/login_func/password_reset.html'), name='password_reset'),
     # path('accounts/password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='templates/login_func/password_reset_done.html'), name='password_reset_done'),

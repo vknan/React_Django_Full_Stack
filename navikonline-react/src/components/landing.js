@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import { Player } from '@lottiefiles/react-lottie-player'
-import PropTypes from 'prop-types'
+import { Player } from "@lottiefiles/react-lottie-player";
+import PropTypes from "prop-types";
 
-import './landing.css'
+import "./landing.css";
 
 const Landing = (props) => {
   return (
@@ -37,26 +37,26 @@ const Landing = (props) => {
       </div>
       <Player
         src="https://lottie.host/ea77eb96-9627-4ee4-bfd0-5bb299f341c3/TzCE7HFC48.json"
-        loop="true"
+        loop={true}
         speed="1"
-        autoplay="true"
+        autoplay={true}
         background="transparent"
         className="landing-lottie-node"
       ></Player>
     </main>
-  )
-}
+  );
+};
 
 Landing.defaultProps = {
-  button: 'Search',
-  textinputPlaceholder: 'Search to learn something...',
-  heading: ' Learn Anytime, Anywhere!',
-}
+  button: "Search",
+  textinputPlaceholder: "Search to learn something...",
+  heading: " Learn Anytime, Anywhere!",
+};
 
 Landing.propTypes = {
   button: PropTypes.string,
   textinputPlaceholder: PropTypes.string,
   heading: PropTypes.string,
-}
+};
 
-export default Landing
+export default Landing;

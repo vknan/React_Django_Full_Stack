@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import './header.css'
+import "./header.css";
 
 const Header = (props) => {
   return (
@@ -54,23 +54,23 @@ const Header = (props) => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
 Header.defaultProps = {
-  text3: 'Blog',
-  text4: 'Contact',
-  rootClassName: '',
-  text1: 'About',
-  login: 'Login',
-  imageSrc1: 'https://presentation-website-assets.teleporthq.io/logos/logo.png',
-  imageAlt: 'logo',
-  imageAlt1: 'image',
-  text2: 'Courses',
-  register: 'Register',
-  text: 'Home',
-  imageSrc: '/design-1500h.webp',
-}
+  text3: "Blog",
+  text4: "Contact",
+  rootClassName: "",
+  text1: "About",
+  login: "Login",
+  imageSrc1: "https://presentation-website-assets.teleporthq.io/logos/logo.png",
+  imageAlt: "logo",
+  imageAlt1: "image",
+  text2: "Courses",
+  register: "Register",
+  text: "Home",
+  imageSrc: "/design-1500h.webp",
+};
 
 Header.propTypes = {
   text3: PropTypes.string,
@@ -85,6 +85,6 @@ Header.propTypes = {
   register: PropTypes.string,
   text: PropTypes.string,
   imageSrc: PropTypes.string,
-}
+};
 
-export default Header
+export default Header;

@@ -43,7 +43,7 @@ class Post(models.Model):
     title = models.CharField(max_length =255)
     thumbnail = models.ImageField(upload_to = 'post/thumbnail')
 
-    description = RichTextField(blank=True, null = True)
+    description = CKEditor5Field('Text', config_name='extends')
     tags = models.CharField(max_length=255)
 
     posted_at = models.DateField(default = datetime.now)  
