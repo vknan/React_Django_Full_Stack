@@ -6,8 +6,8 @@ This is a Full Stack React Django Application
 2. run django server `python manage.py runserver --settings=myproject.settings.development`
 
 Api End points
-1. api/courses/
-2. api/courses/2
-3. api/courses/3
-4. api/courses/4
-5. api/courses/5
+1. http:127.0.0.1:8000/api/courses/
+2. http:127.0.0.1:8000/api/courses/2
+3. http:127.0.0.1:8000/api/courses/3
+4. http:127.0.0.1:8000/api/courses/4
+5. http:127.0.0.1:8000/api/courses/5
