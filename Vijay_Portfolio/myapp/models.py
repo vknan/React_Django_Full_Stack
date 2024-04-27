@@ -14,6 +14,8 @@ class Article(models.Model):
 class Course(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
+    created = models.DateTimeField(default = datetime.now)
+    lottieicon = models.URLField(max_length=200, blank=True, null = True) 
     instructor = models.ForeignKey(User, on_delete=models.CASCADE)  # Assuming User model exists
 
     def __str__(self):

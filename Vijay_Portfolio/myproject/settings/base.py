@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django_ckeditor_5",
     "ckeditor",
     "newsletters",
+    "rest_framework",
     # "django.contrib.sites",
     # 'cms',
     # 'menus',

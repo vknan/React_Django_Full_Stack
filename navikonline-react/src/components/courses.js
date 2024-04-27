@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import { Player } from '@lottiefiles/react-lottie-player'
-import PropTypes from 'prop-types'
+import { Player } from "@lottiefiles/react-lottie-player";
+import PropTypes from "prop-types";
 
-import './courses.css'
+import "./courses.css";
 
 const Courses = (props) => {
   return (
@@ -112,28 +112,28 @@ const Courses = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Courses.defaultProps = {
-  heading1: 'CSPY: Introduction to Python Programming',
-  heading4: 'CSF: Computer Science Fundamentals',
-  linkFeatureCard2: 'https://www.example.com',
-  text2: 'Begin the Exciting Journey in Web Design & Development',
-  linkFeatureCard: 'https://www.example.com',
-  heading3: 'CSAI: Introduction to Artificial Intelligence With Python',
-  text3: 'SEE MORE',
-  text5: 'SEE MORE',
-  text1: 'SEE MORE',
-  linkFeatureCard1: 'https://www.example.com',
-  heading2: 'CSW: Introduction to Web Programming with Python and JavaScript',
-  linkFeatureCard3: 'https://www.example.com',
-  text: 'Welcome to the World of Python Programming',
-  heading: 'Courses',
-  text7: 'SEE MORE',
-  text4: 'Start Your Journey by understanding the Artificial Intelligence',
-  text6: 'Learn the Solid Foundations of Computer Science at us',
-}
+  heading1: "CSPY: Introduction to Python Programming",
+  heading4: "CSF: Computer Science Fundamentals",
+  linkFeatureCard2: "https://www.example.com",
+  text2: "Begin the Exciting Journey in Web Design & Development",
+  linkFeatureCard: "https://www.example.com",
+  heading3: "CSAI: Introduction to Artificial Intelligence With Python",
+  text3: "SEE MORE",
+  text5: "SEE MORE",
+  text1: "SEE MORE",
+  linkFeatureCard1: "https://www.example.com",
+  heading2: "CSW: Introduction to Web Programming with Python and JavaScript",
+  linkFeatureCard3: "https://www.example.com",
+  text: "Welcome to the World of Python Programming",
+  heading: "Courses",
+  text7: "SEE MORE",
+  text4: "Start Your Journey by understanding the Artificial Intelligence",
+  text6: "Learn the Solid Foundations of Computer Science at us",
+};
 
 Courses.propTypes = {
   heading1: PropTypes.string,
@@ -153,6 +153,6 @@ Courses.propTypes = {
   text7: PropTypes.string,
   text4: PropTypes.string,
   text6: PropTypes.string,
-}
+};
 
-export default Courses
+export default Courses;

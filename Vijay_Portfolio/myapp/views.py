@@ -8,6 +8,8 @@ from django.views.decorators.http import require_GET
 from .models import *
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseServerError
+from rest_framework import generics
+from .serializers import CourseSerializer
 # from django.http import JsonResponse
 # from django.utils import timezone
 # from datetime import timedelta
@@ -16,6 +18,17 @@ from django.http import HttpResponse, HttpResponseServerError
 # from .forms import CustomPasswordResetForm
 import os
 # from payu import PayUmoneySdk
+class CourseList(generics.ListCreateAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+class CourseDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+class CourseDelete(generics.DestroyAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
 
 #==============================Without Login============================
 class pages:
