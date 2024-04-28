@@ -1,6 +1,6 @@
 # React_Django_Full_Stack
 This is a Full Stack React Django Application
-
+`React-Django Integrated using django-cors-headers, middliware and other configuration.`
 # Running Django Application
 1. Change directory inside Django project by `cd Vijay_Portfolio`
 1. Activate Virtual Environment by using terminal command `source myenv/Scripts/activate`
