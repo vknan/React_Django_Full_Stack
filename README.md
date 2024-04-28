@@ -8,10 +8,10 @@ This is a Full Stack React Django Application
 
 Api End points
 1. `http:127.0.0.1:8000/api/courses/`
-2. `http:127.0.0.1:8000/api/posts`
-3. `http:127.0.0.1:8000/api/comments`
-4. `http:127.0.0.1:8000/api/contacts`
-5. `http:127.0.0.1:8000/api/categories`
+2. `http:127.0.0.1:8000/api/posts/`
+3. `http:127.0.0.1:8000/api/comments/`
+4. `http:127.0.0.1:8000/api/contacts/`
+5. `http:127.0.0.1:8000/api/categories/`
 
 
 # Running React Application (Front End Terminal)
