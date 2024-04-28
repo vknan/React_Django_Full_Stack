@@ -17,8 +17,9 @@
 }
 .course-card {
   width: calc(
-    40% - 20px
+    20% - 20px
   ); /* Each card occupies 50% of the container width minus the gap */
+  height: auto;
   background-color: #fff;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1); /* Add shadow effect */
   padding: 20px;

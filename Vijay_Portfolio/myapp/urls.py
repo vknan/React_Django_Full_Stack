@@ -6,7 +6,27 @@ urlpatterns = [
     path('api/courses/', views.CourseList.as_view(), name='course-list'),
     path('api/courses/<int:pk>', views.CourseDetail.as_view(), name='course-detail'),
     path('api/courses/<int:pk>', views.CourseDelete.as_view(), name='course-delete'),
-    
+    path('api/courses/<int:pk>', views.CourseUpdate.as_view(), name='course-update'),
+
+    path('api/posts/', views.PostList.as_view(), name='post-list'),
+    path('api/posts/<int:pk>', views.PostDetail.as_view(), name='post-detail'),
+    path('api/posts/<int:pk>', views.PostDelete.as_view(), name='post-delete'),
+    path('api/posts/<int:pk>', views.PostUpdate.as_view(), name='post-update'),
+
+    path('api/comments/', views.CommentList.as_view(), name='comment-list'),
+    path('api/comments/<int:pk>', views.CommentDetail.as_view(), name='comment-detail'),
+    path('api/comments/<int:pk>', views.CommentDelete.as_view(), name='comment-delete'),
+    path('api/comments/<int:pk>', views.CommentUpdate.as_view(), name='comment-update'),
+
+    path('api/contacts/', views.ContactList.as_view(), name='contact-list'),
+    path('api/contacts/<int:pk>', views.ContactDetail.as_view(), name='contact-detail'),
+    path('api/contacts/<int:pk>', views.ContactDelete.as_view(), name='contact-delete'),
+    path('api/contacts/<int:pk>', views.ContactUpdate.as_view(), name='contact-update'),
+
+    path('api/categories/', views.CategoryList.as_view(), name='category-list'),
+    path('api/categories/<int:pk>', views.CategoryDetail.as_view(), name='category-detail'),
+    path('api/categories/<int:pk>', views.CategoryDelete.as_view(), name='category-delete'),
+    path('api/categories/<int:pk>', views.CategoryUpdate.as_view(), name='category-update'),
 
     path('user/register/', views.login_functionality.register, name = 'register'),
     path('accounts/login/', views.login_functionality.login, name = 'login'),

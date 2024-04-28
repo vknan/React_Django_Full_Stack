@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import Email from "../components/email";
 import Header from "../components/header";
 import Landing from "../components/landing";
-import Courses from "../components/courses";
+// import Courses from "../components/courses";
 import CourseList from "../components/courselist";
 import About from "../components/about";
 import Stats from "../components/stats";

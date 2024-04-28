@@ -1,7 +1,7 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 import "./header.css";
 
 const Header = (props) => {
@@ -10,10 +10,14 @@ const Header = (props) => {
       <img alt={props.imageAlt} src={props.imageSrc} className="header-image" />
       <div className="header-nav">
         <nav className="header-nav1">
-          <span className="header-text">{props.text}</span>
+          <span className="header-text">
+            <Link to="/">{props.text}</Link>
+          </span>
           <span className="header-text1">{props.text1}</span>
           <span className="header-text2">{props.text2}</span>
-          <span className="header-text3">{props.text3}</span>
+          <span className="header-text3">
+            <Link to="/blog">{props.text3}</Link>
+          </span>
           <span className="header-text4">{props.text4}</span>
         </nav>
       </div>

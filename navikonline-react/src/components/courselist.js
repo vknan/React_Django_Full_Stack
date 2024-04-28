@@ -40,7 +40,9 @@ const CourseList = () => {
             ></Player>
             <p className="course-title">{course.title}</p>
             <p className="course-description">{course.description}</p>
-            {/* <p className="course-instructor">Instructor: {course.instructor}</p> */}
+            {/* <p className="course-instructor">
+              Instructor: {course.instructor.username}
+            </p> */}
 
             {/* Add more course details as needed */}
           </div>

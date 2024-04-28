@@ -5,10 +5,6 @@ from django_ckeditor_5.fields import CKEditor5Field
 
 # Create your models here.
 
-# class Article(models.Model):
-#     title=models.CharField('Title', max_length=200)
-#     text=CKEditor5Field('Text', config_name='extends')
-
 
 class Course(models.Model):
     title = models.CharField(max_length=100)
