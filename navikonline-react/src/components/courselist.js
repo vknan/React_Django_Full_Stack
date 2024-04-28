@@ -9,7 +9,7 @@ const CourseList = () => {
     const fetchCourses = async () => {
       try {
         const response = await fetch(
-          "https://navikonline.in/api/courses/?format=json"
+          "https://vknan.pythonanywhere.com/api/courses/?format=json"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch courses");

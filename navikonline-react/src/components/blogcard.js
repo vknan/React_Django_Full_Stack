@@ -11,7 +11,7 @@ const Blogcard = () => {
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          "https://navikonline.in/api/posts/?format=json"
+          "https://vknan.pythonanywhere.com/api/posts/?format=json"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch posts");
@@ -31,7 +31,7 @@ const Blogcard = () => {
   const handleReadMore = async (postId) => {
     try {
       const response = await fetch(
-        `https://navikonline.in/api/posts/${postId}/?format=json`
+        `https://vknan.pythonanywhere.com/api/posts/${postId}/?format=json`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch post details");
