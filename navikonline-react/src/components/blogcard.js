@@ -31,7 +31,7 @@ const Blogcard = () => {
   const handleReadMore = async (postId) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/posts/${postId}/?format=json`
+        `https://navikonline.in/api/posts/${postId}/?format=json`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch post details");
