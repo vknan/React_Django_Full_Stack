@@ -98,12 +98,18 @@ class ckeditor_5_upload_file_view():
         if request.method == 'POST' and request.FILES.get('upload'):
             uploaded_file = request.FILES['upload']
 
-            # Generate a unique filename using slugified version of the original filename
-            filename = slugify(uploaded_file.name)
+            # Get the original filename
+            original_filename = uploaded_file.name
+
+            # Split the filename and extension
+            file_name, file_extension = os.path.splitext(original_filename)
+
+            # Generate a unique filename using the original filename (without slugifying)
+            filename = slugify(file_name) + file_extension
 
             # Save the uploaded file to the 'post/images/' directory within MEDIA_ROOT
             file_path = f'post/{filename}'  # Relative path within 'media' directory
-            full_file_path = settings.MEDIA_ROOT + file_path  # Full absolute path
+            full_file_path = os.path.join(settings.MEDIA_ROOT, file_path)  # Full absolute path
 
             # Write the file to the filesystem
             with open(full_file_path, 'wb') as file:
@@ -112,13 +118,13 @@ class ckeditor_5_upload_file_view():
 
             # Construct the URL to access the uploaded file publicly
             public_url = settings.MEDIA_URL + file_path  # Full URL starting from MEDIA_URL
-
+            print("Hi")
+            print(full_file_path)
             # Return a JSON response with the uploaded file details
             return JsonResponse({'uploaded': True, 'url': public_url})
 
         # If no file was uploaded or request method is not POST, return failure response
         return JsonResponse({'uploaded': False}, status=400)
-
 
 #==============================Without Login============================
 class pages:

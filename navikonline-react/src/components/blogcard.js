@@ -3,6 +3,9 @@ import "./blogcard.css";
 
 const Blogcard = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedPost, setSelectedPost] = useState(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -15,54 +18,95 @@ const Blogcard = () => {
         }
         const data = await response.json();
         setPosts(data);
+        setLoading(false);
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        setError(error.message);
+        setLoading(false);
       }
     };
 
     fetchPosts();
   }, []);
 
+  const handleReadMore = async (postId) => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/api/posts/${postId}/?format=json`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch post details");
+      }
+      const postData = await response.json();
+      setSelectedPost(postData);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  if (loading) {
+    return <div className="blogcard-container">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="blogcard-container">Error: {error}</div>;
+  }
+
   return (
-    <div>
-      <h1>Blog</h1>
+    <div className="blogcard-container">
+      <h1 className="blogcard-heading">Blog</h1>
       <ul>
         {posts.map((post) => (
-          <article key={post.id}>
+          <article className="blogcard-post" key={post.id}>
             <div>
-              <img src={post.thumbnail} alt="" />
+              <img className="blogcard-thumbnail" src={post.thumbnail} alt="" />
             </div>
 
-            <h2>
+            <h2 className="blogcard-title">
               <a href={`/blog/${post.title}`}>{post.title}</a>
             </h2>
 
-            <div>
+            <div className="blogcard-meta">
               <ul>
-                <li>
+                <li className="blogcard-meta-item">
                   <i></i> <a>{post.user.username}</a>
                 </li>
-                <li>
-                  <i></i>{" "}
-                  <a>
-                    <time>{post.posted_at}</time>
-                  </a>
+                <li className="blogcard-meta-item">
+                  <i></i> <time>{post.posted_at}</time>
                 </li>
-                <li>
+                <li className="blogcard-meta-item">
                   <i></i> <a>{post.category.name}</a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <p>{post.description}</p>
+              {/* Render post description as HTML */}
+              <p dangerouslySetInnerHTML={{ __html: post.description }} />
               <div>
-                <a href={`/blog/${post.title}`}>Read More</a>
+                <button
+                  className="blogcard-readmore"
+                  onClick={() => handleReadMore(post.id)}
+                >
+                  Read More
+                </button>
               </div>
             </div>
           </article>
         ))}
       </ul>
+
+      {selectedPost && (
+        <div className="blogcard-selected-post">
+          <h2>{selectedPost.title}</h2>
+          <p dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
+          <button
+            className="blogcard-close"
+            onClick={() => setSelectedPost(null)}
+          >
+            Close
+          </button>
+        </div>
+      )}
     </div>
   );
 };

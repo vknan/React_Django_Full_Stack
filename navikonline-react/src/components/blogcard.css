@@ -1,0 +1,55 @@
+/* Container styles */
+.blogcard-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Heading styles */
+.blogcard-heading {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Post styles */
+.blogcard-post {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Image styles */
+.blogcard-thumbnail {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Title styles */
+.blogcard-title {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Meta information styles */
+.blogcard-meta {
+  margin-bottom: 10px;
+}
+
+.blogcard-meta-item {
+  display: inline-block;
+  margin-right: 10px;
+  color: #777;
+}
+
+.blogcard-meta-item i {
+  margin-right: 5px;
+}
+
+/* Read more link styles */
+.blogcard-readmore {
+  color: #007bff;
+  text-decoration: none;
+}
