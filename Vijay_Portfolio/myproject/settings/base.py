@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 SITE_ID = 1
 CORS_ALLOWED_ORIGINS = [
     'https://react-django-full-stack.vercel.app/',
-    'https://navikonline.in'  # Example: React frontend URL
+    'https://navikonline.in',  # Example: React frontend URL
     # Add more origins as needed
 ]
 
