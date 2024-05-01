@@ -28,6 +28,21 @@ const Blogcard = () => {
     fetchPosts();
   }, []);
 
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    // Trim the text to the maximum length
+    const truncatedText = text.substr(0, maxLength);
+    // Re-trim if we are in the middle of a word
+    return (
+      truncatedText.substr(
+        0,
+        Math.min(truncatedText.length, truncatedText.lastIndexOf(" "))
+      ) + "..."
+    );
+  };
+
   if (loading) {
     return <div className="blogcard-container">Loading...</div>;
   }
@@ -51,7 +66,6 @@ const Blogcard = () => {
                     alt=""
                   />
                 </div>
-
                 <h2 className="blogcard-title">{post.title}</h2>
                 <div className="blogcard-meta">
                   <ul>
@@ -66,12 +80,13 @@ const Blogcard = () => {
                     </li>
                   </ul>
                 </div>
-
+                {/* Truncate the description to approximately 150 words */}
                 <div
                   className="blogcard-description"
-                  dangerouslySetInnerHTML={{ __html: post.description }}
+                  dangerouslySetInnerHTML={{
+                    __html: truncateText(post.description, 150),
+                  }}
                 />
-
                 <Link to={`/blog/${post.id}`} className="blogcard-read-more">
                   Read More
                 </Link>
