@@ -20,6 +20,15 @@ const Header = (props) => {
       });
     }
   };
+  const scrollToCourses = () => {
+    const courseSection = document.getElementById("course");
+    if (courseSection) {
+      window.scrollTo({
+        top: courseSection.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <header className="header-header">
@@ -31,12 +40,12 @@ const Header = (props) => {
             <Link to="/">{props.text}</Link>
           </span>
           <span className="header-text1">
-            <Link to="#" onClick={scrollToAbout}>
+            <Link to="#about" onClick={scrollToAbout}>
               {props.text1}
             </Link>
           </span>
           <span className="header-text2">
-            <Link to="/courses">{props.text2}</Link>
+            <Link to="#course">{props.text2}</Link>
           </span>
           <span className="header-text3">
             <Link to="/blog">{props.text3}</Link>

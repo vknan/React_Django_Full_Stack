@@ -25,7 +25,7 @@ const CourseList = () => {
   }, []); // Empty dependency array ensures useEffect runs only once on component mount
 
   return (
-    <div>
+    <div id="course">
       <h1 className="course-list-heading">Courses</h1>
       <div className="course-list">
         {courses.map((course) => (
