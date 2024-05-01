@@ -1,4 +1,5 @@
-// Header Component with Mobile Menu Fix
+// Header.js
+
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -8,7 +9,6 @@ const Header = (props) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleToggleMobileMenu = () => {
-    console.log("clicked");
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
@@ -47,17 +47,20 @@ const Header = (props) => {
         </svg>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="header-mobile-menu">
-          <nav className="mobile-nav-links">
-            <Link to="/">{props.text}</Link>
-            <Link to="/about">{props.text1}</Link>
-            <Link to="/courses">{props.text2}</Link>
-            <Link to="/blog">{props.text3}</Link>
-            <Link to="/contact">{props.text4}</Link>
-          </nav>
-        </div>
-      )}
+      {/* Apply 'mobile-menu-open' class conditionally */}
+      <div
+        className={`header-mobile-menu ${
+          isMobileMenuOpen ? "mobile-menu-open" : ""
+        }`}
+      >
+        <nav className="mobile-nav-links">
+          <Link to="/">{props.text}</Link>
+          <Link to="/about">{props.text1}</Link>
+          <Link to="/courses">{props.text2}</Link>
+          <Link to="/blog">{props.text3}</Link>
+          <Link to="/contact">{props.text4}</Link>
+        </nav>
+      </div>
     </header>
   );
 };
