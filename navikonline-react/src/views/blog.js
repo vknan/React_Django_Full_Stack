@@ -37,8 +37,8 @@ const Blog = (props) => {
         {/* Default route for displaying all posts */}
         <Route exact path={path}>
           <Blogcard />
-          <Sidebar className="sidebar-container" />
-          <Pagination className="pagination-container" />
+          {/* <Sidebar className="sidebar-container" />
+          <Pagination className="pagination-container" /> */}
         </Route>
       </Switch>
 

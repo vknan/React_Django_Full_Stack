@@ -39,7 +39,7 @@ const SinglePost = () => {
   return (
     <div>
       <h2>{post.title}</h2>
-      <p>{post.content}</p>
+      <p>{post.description}</p>
       {/* Add additional post details here if needed */}
     </div>
   );
