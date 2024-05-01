@@ -32,7 +32,15 @@ const Header = (props) => {
 
   return (
     <header className="header-header">
-      <img alt={props.imageAlt} src={props.imageSrc} className="header-image" />
+      <Link to="https://navikonline.in">
+        {" "}
+        {/* Link wraps the logo image */}
+        <img
+          alt={props.imageAlt}
+          src={props.imageSrc}
+          className="header-image"
+        />
+      </Link>
 
       <div className="header-nav">
         <nav className="header-nav1">
@@ -45,7 +53,9 @@ const Header = (props) => {
             </Link>
           </span>
           <span className="header-text2">
-            <Link to="#course">{props.text2}</Link>
+            <Link to="#course" onClick={scrollToCourses}>
+              {props.text2}
+            </Link>
           </span>
           <span className="header-text3">
             <Link to="/blog">{props.text3}</Link>
