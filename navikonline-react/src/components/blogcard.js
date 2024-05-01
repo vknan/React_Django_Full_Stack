@@ -51,11 +51,8 @@ const Blogcard = () => {
                     alt=""
                   />
                 </div>
+
                 <h2 className="blogcard-title">{post.title}</h2>
-                <div
-                  className="blogcard-description"
-                  dangerouslySetInnerHTML={{ __html: post.description }}
-                />
                 <div className="blogcard-meta">
                   <ul>
                     <li className="blogcard-meta-item">
@@ -69,6 +66,12 @@ const Blogcard = () => {
                     </li>
                   </ul>
                 </div>
+
+                <div
+                  className="blogcard-description"
+                  dangerouslySetInnerHTML={{ __html: post.description }}
+                />
+
                 <Link to={`/blog/${post.id}`} className="blogcard-read-more">
                   Read More
                 </Link>
