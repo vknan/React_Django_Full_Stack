@@ -9,7 +9,7 @@ const Header = (props) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleToggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen(!isMobileMenuOpen); // Toggle the mobile menu state
   };
 
   return (
@@ -47,7 +47,7 @@ const Header = (props) => {
         </svg>
       </div>
 
-      {/* Apply 'mobile-menu-open' class conditionally */}
+      {/* Apply 'mobile-menu-open' class conditionally based on state */}
       <div
         className={`header-mobile-menu ${
           isMobileMenuOpen ? "mobile-menu-open" : ""
@@ -65,20 +65,7 @@ const Header = (props) => {
   );
 };
 
-Header.defaultProps = {
-  text: "Home",
-  text1: "About",
-  text2: "Courses",
-  text3: "Blog",
-  text4: "Contact",
-  login: "Login",
-  register: "Register",
-  imageSrc: "/design-1500h.webp",
-  imageSrc1: "https://presentation-website-assets.teleporthq.io/logos/logo.png",
-  imageAlt: "Logo",
-  imageAlt1: "Image",
-};
-
+// PropTypes and default props definitions
 Header.propTypes = {
   text: PropTypes.string,
   text1: PropTypes.string,
@@ -88,9 +75,19 @@ Header.propTypes = {
   login: PropTypes.string,
   register: PropTypes.string,
   imageSrc: PropTypes.string,
-  imageSrc1: PropTypes.string,
   imageAlt: PropTypes.string,
-  imageAlt1: PropTypes.string,
+};
+
+Header.defaultProps = {
+  text: "Home",
+  text1: "About",
+  text2: "Courses",
+  text3: "Blog",
+  text4: "Contact",
+  login: "Login",
+  register: "Register",
+  imageSrc: "/design-1500h.webp",
+  imageAlt: "Logo",
 };
 
 export default Header;
