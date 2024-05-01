@@ -43,6 +43,11 @@ const Blogcard = () => {
     }
   };
 
+  const renderHTML = (htmlString) => {
+    // Function to render HTML string safely
+    return { __html: htmlString };
+  };
+
   if (loading) {
     return <div className="blogcard-container">Loading...</div>;
   }
@@ -53,15 +58,17 @@ const Blogcard = () => {
 
   if (selectedPost) {
     return (
-      <div className="blogcard-selected-post">
-        <h2>{selectedPost.title}</h2>
-        <p dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
-        <button
-          className="blogcard-close"
-          onClick={() => setSelectedPost(null)}
-        >
-          Close
-        </button>
+      <div className="blogcard-container">
+        <div className="blogcard-selected-post">
+          <h2>{selectedPost.title}</h2>
+          <div dangerouslySetInnerHTML={renderHTML(selectedPost.content)} />
+          <button
+            className="blogcard-close"
+            onClick={() => setSelectedPost(null)}
+          >
+            Close
+          </button>
+        </div>
       </div>
     );
   }
@@ -96,7 +103,11 @@ const Blogcard = () => {
 
             <div>
               {/* Render truncated post description */}
-              <p>{post.description.substring(0, 150)}...</p>
+              <p
+                dangerouslySetInnerHTML={renderHTML(
+                  post.description.substring(0, 150) + "..."
+                )}
+              />
               <div>
                 <button
                   className="blogcard-readmore"
