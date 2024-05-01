@@ -31,7 +31,7 @@ const Blogcard = () => {
   const handleReadMore = async (postId) => {
     try {
       const response = await fetch(
-        `https://vknan.pythonanywhere.com/api/posts/${postId}/?format=json`
+        `https://vknan.pythonanywhere.com/api/posts/${postId}?format=json`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch post details");
@@ -49,6 +49,21 @@ const Blogcard = () => {
 
   if (error) {
     return <div className="blogcard-container">Error: {error}</div>;
+  }
+
+  if (selectedPost) {
+    return (
+      <div className="blogcard-selected-post">
+        <h2>{selectedPost.title}</h2>
+        <p dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
+        <button
+          className="blogcard-close"
+          onClick={() => setSelectedPost(null)}
+        >
+          Close
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -80,8 +95,8 @@ const Blogcard = () => {
             </div>
 
             <div>
-              {/* Render post description as HTML */}
-              <p dangerouslySetInnerHTML={{ __html: post.description }} />
+              {/* Render truncated post description */}
+              <p>{post.description.substring(0, 150)}...</p>
               <div>
                 <button
                   className="blogcard-readmore"
@@ -94,19 +109,6 @@ const Blogcard = () => {
           </article>
         ))}
       </ul>
-
-      {selectedPost && (
-        <div className="blogcard-selected-post">
-          <h2>{selectedPost.title}</h2>
-          <p dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
-          <button
-            className="blogcard-close"
-            onClick={() => setSelectedPost(null)}
-          >
-            Close
-          </button>
-        </div>
-      )}
     </div>
   );
 };
