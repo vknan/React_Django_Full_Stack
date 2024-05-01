@@ -4,12 +4,6 @@
   padding: 20px;
 }
 
-.blogcard-heading {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .blogcard-post-link {
   text-decoration: none;
   color: inherit;
@@ -71,10 +65,14 @@
   background-color: #ff7f00; /* Darker orange on hover */
 }
 
-/* Remove list-style and padding from ul */
-.blogcard-post ul {
+/* Remove default list styling */
+.blogcard-container ul {
   list-style: none;
   padding: 0;
+}
+
+.blogcard-container ul li {
+  margin-bottom: 20px; /* Add spacing between blog post items */
 }
 
 @media (max-width: 600px) {
