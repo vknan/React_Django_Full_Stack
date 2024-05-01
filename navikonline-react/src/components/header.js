@@ -85,8 +85,12 @@ const Header = (props) => {
       >
         <nav className="mobile-nav-links">
           <Link to="/">{props.text}</Link>
-          <Link to="/about">{props.text1}</Link>
-          <Link to="/courses">{props.text2}</Link>
+          <Link to="#about" onClick={scrollToAbout}>
+            {props.text1}
+          </Link>
+          <Link to="#course" onClick={scrollToCourses}>
+            {props.text2}
+          </Link>
           <Link to="/blog">{props.text3}</Link>
           <Link to="/contact">{props.text4}</Link>
         </nav>
