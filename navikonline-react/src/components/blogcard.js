@@ -53,7 +53,6 @@ const Blogcard = () => {
 
   return (
     <div className="blogcard-container">
-      <h1 className="blogcard-heading">Blog</h1>
       <ul>
         {posts.map((post) => (
           <li key={post.id}>

@@ -49,7 +49,6 @@
 }
 
 .blogcard-meta-item {
-  list-style: none;
   display: inline;
   margin-right: 10px;
 }
@@ -70,6 +69,12 @@
 
 .blogcard-read-more:hover {
   background-color: #ff7f00; /* Darker orange on hover */
+}
+
+/* Remove list-style and padding from ul */
+.blogcard-post ul {
+  list-style: none;
+  padding: 0;
 }
 
 @media (max-width: 600px) {

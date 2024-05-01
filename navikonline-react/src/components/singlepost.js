@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./singlepost.css"; // Import CSS file for styling
 
 const SinglePost = () => {
   const { postId } = useParams();
@@ -37,9 +38,12 @@ const SinglePost = () => {
   }
 
   return (
-    <div>
-      <h2>{post.title}</h2>
-      <p>{post.description}</p>
+    <div className="singlepost-container">
+      <h2 className="singlepost-title">{post.title}</h2>
+      <p
+        className="singlepost-description"
+        dangerouslySetInnerHTML={{ __html: post.description }}
+      />
       {/* Add additional post details here if needed */}
     </div>
   );
