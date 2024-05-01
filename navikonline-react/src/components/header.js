@@ -31,10 +31,8 @@ const Header = (props) => {
             <Link to="/">{props.text}</Link>
           </span>
           <span className="header-text1">
-            <Link to="/about">
-              <a href="#" onClick={scrollToAbout}>
-                {props.text1}
-              </a>
+            <Link to="#" onClick={scrollToAbout}>
+              {props.text1}
             </Link>
           </span>
           <span className="header-text2">
