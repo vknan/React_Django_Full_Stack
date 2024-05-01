@@ -11,6 +11,15 @@ const Header = (props) => {
   const handleToggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen); // Toggle the mobile menu state
   };
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      window.scrollTo({
+        top: aboutSection.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <header className="header-header">
@@ -22,7 +31,11 @@ const Header = (props) => {
             <Link to="/">{props.text}</Link>
           </span>
           <span className="header-text1">
-            <Link to="/about">{props.text1}</Link>
+            <Link to="/about">
+              <a href="#" onClick={scrollToAbout}>
+                {props.text1}
+              </a>
+            </Link>
           </span>
           <span className="header-text2">
             <Link to="/courses">{props.text2}</Link>

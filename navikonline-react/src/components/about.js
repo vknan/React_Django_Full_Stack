@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import './about.css'
+import "./about.css";
 
 const About = (props) => {
   return (
-    <div className="about-banner">
+    <div id="about" className="about-banner">
       <h1 className="about-text">{props.heading}</h1>
       <div className="about-container">
         <div className="about-container1">
@@ -75,7 +75,7 @@ const About = (props) => {
               In the ever-evolving landscape of technology,
               <span
                 dangerouslySetInnerHTML={{
-                  __html: ' ',
+                  __html: " ",
                 }}
               />
             </span>
@@ -177,48 +177,48 @@ const About = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 About.defaultProps = {
-  imageAlt10: 'image',
+  imageAlt10: "image",
   imageSrc11:
-    'https://images.unsplash.com/photo-1621109246687-10ae613f2d8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDE2fHxJTExVU1RSQVRJT058ZW58MHx8fHwxNzA5NTM0MzY5fDA&ixlib=rb-4.0.3&q=80&w=500',
+    "https://images.unsplash.com/photo-1621109246687-10ae613f2d8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDE2fHxJTExVU1RSQVRJT058ZW58MHx8fHwxNzA5NTM0MzY5fDA&ixlib=rb-4.0.3&q=80&w=500",
   imageSrc2:
-    'https://images.unsplash.com/photo-1559757742-654d5da2eaab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDR8fG51bWJlciUyMDF8ZW58MHx8fHwxNzA5NTMzNjQ0fDA&ixlib=rb-4.0.3&q=80&w=200',
-  heading: 'Our Commitment ',
+    "https://images.unsplash.com/photo-1559757742-654d5da2eaab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDR8fG51bWJlciUyMDF8ZW58MHx8fHwxNzA5NTMzNjQ0fDA&ixlib=rb-4.0.3&q=80&w=200",
+  heading: "Our Commitment ",
   imageSrc7:
-    'https://images.unsplash.com/photo-1481622254766-0f0a35bf6e77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDE1fHxBQ0NFU1N8ZW58MHx8fHwxNzA5NTM4OTkxfDA&ixlib=rb-4.0.3&q=80&w=400',
+    "https://images.unsplash.com/photo-1481622254766-0f0a35bf6e77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDE1fHxBQ0NFU1N8ZW58MHx8fHwxNzA5NTM4OTkxfDA&ixlib=rb-4.0.3&q=80&w=400",
   imageSrc4:
-    'https://images.unsplash.com/photo-1621440318357-3e3c94221a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDF8fE5VTUJFUiUyMDN8ZW58MHx8fHwxNzA5NTM2Mjk4fDA&ixlib=rb-4.0.3&q=80&w=200',
-  imageAlt1: 'image',
-  imageAlt11: 'image',
-  imageAlt6: 'image',
-  imageAlt3: 'image',
+    "https://images.unsplash.com/photo-1621440318357-3e3c94221a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDF8fE5VTUJFUiUyMDN8ZW58MHx8fHwxNzA5NTM2Mjk4fDA&ixlib=rb-4.0.3&q=80&w=200",
+  imageAlt1: "image",
+  imageAlt11: "image",
+  imageAlt6: "image",
+  imageAlt3: "image",
   imageSrc8:
-    'https://images.unsplash.com/photo-1583506573326-f44ad9661e45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fE5VTUJFUiUyMDV8ZW58MHx8fHwxNzA5NTM4MDM0fDA&ixlib=rb-4.0.3&q=80&w=200',
+    "https://images.unsplash.com/photo-1583506573326-f44ad9661e45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fE5VTUJFUiUyMDV8ZW58MHx8fHwxNzA5NTM4MDM0fDA&ixlib=rb-4.0.3&q=80&w=200",
   imageSrc6:
-    'https://images.unsplash.com/photo-1610072947120-8736bbfc56e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDF8fE5VTUJFUiUyMDR8ZW58MHx8fHwxNzA5NTM3MDA0fDA&ixlib=rb-4.0.3&q=80&w=200',
+    "https://images.unsplash.com/photo-1610072947120-8736bbfc56e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDF8fE5VTUJFUiUyMDR8ZW58MHx8fHwxNzA5NTM3MDA0fDA&ixlib=rb-4.0.3&q=80&w=200",
   imageSrc1:
-    'https://images.unsplash.com/photo-1690683789978-3cf73960d650?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDh8fFBST0dSQU1NSU5HJTIwVU5JVkVSU0V8ZW58MHx8fHwxNzA5NTM0MTAwfDA&ixlib=rb-4.0.3&w=400',
+    "https://images.unsplash.com/photo-1690683789978-3cf73960d650?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDh8fFBST0dSQU1NSU5HJTIwVU5JVkVSU0V8ZW58MHx8fHwxNzA5NTM0MTAwfDA&ixlib=rb-4.0.3&w=400",
   imageSrc9:
-    'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDI4fHxCRVlPTkQlMjBMRUFSTklOR3xlbnwwfHx8fDE3MDk1MzgwODN8MA&ixlib=rb-4.0.3&w=400',
-  imageAlt2: 'image',
+    "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDI4fHxCRVlPTkQlMjBMRUFSTklOR3xlbnwwfHx8fDE3MDk1MzgwODN8MA&ixlib=rb-4.0.3&w=400",
+  imageAlt2: "image",
   imageSrc:
-    'https://images.unsplash.com/photo-1629956044156-27896de7efa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDE4fHxudW1iZXIlMjAxfGVufDB8fHx8MTcwOTUzMzY0NHww&ixlib=rb-4.0.3&q=80&w=200',
-  imageAlt4: 'image',
-  imageAlt9: 'image',
-  imageAlt5: 'image',
+    "https://images.unsplash.com/photo-1629956044156-27896de7efa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDE4fHxudW1iZXIlMjAxfGVufDB8fHx8MTcwOTUzMzY0NHww&ixlib=rb-4.0.3&q=80&w=200",
+  imageAlt4: "image",
+  imageAlt9: "image",
+  imageAlt5: "image",
   imageSrc10:
-    'https://images.unsplash.com/photo-1640684518379-b1cae1002131?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDl8fE5VTUJFUiUyMDZ8ZW58MHx8fHwxNzA5NTM5MjY2fDA&ixlib=rb-4.0.3&q=80&w=200',
-  imageAlt7: 'image',
-  imageAlt8: 'image',
+    "https://images.unsplash.com/photo-1640684518379-b1cae1002131?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDl8fE5VTUJFUiUyMDZ8ZW58MHx8fHwxNzA5NTM5MjY2fDA&ixlib=rb-4.0.3&q=80&w=200",
+  imageAlt7: "image",
+  imageAlt8: "image",
   imageSrc3:
-    'https://images.unsplash.com/photo-1564865878688-9a244444042a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDV8fFBST0dSQU1NSU5HfGVufDB8fHx8MTcwOTUzNTExN3ww&ixlib=rb-4.0.3&q=80&w=400',
-  imageAlt: 'image',
+    "https://images.unsplash.com/photo-1564865878688-9a244444042a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDV8fFBST0dSQU1NSU5HfGVufDB8fHx8MTcwOTUzNTExN3ww&ixlib=rb-4.0.3&q=80&w=400",
+  imageAlt: "image",
   imageSrc5:
-    'https://images.unsplash.com/photo-1611264327630-8090373c8cef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDU4fHxJTExVU1RSQVRJT058ZW58MHx8fHwxNzA5NTM2MTg4fDA&ixlib=rb-4.0.3&q=80&w=400',
-}
+    "https://images.unsplash.com/photo-1611264327630-8090373c8cef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDU4fHxJTExVU1RSQVRJT058ZW58MHx8fHwxNzA5NTM2MTg4fDA&ixlib=rb-4.0.3&q=80&w=400",
+};
 
 About.propTypes = {
   imageAlt10: PropTypes.string,
@@ -246,6 +246,6 @@ About.propTypes = {
   imageSrc3: PropTypes.string,
   imageAlt: PropTypes.string,
   imageSrc5: PropTypes.string,
-}
+};
 
-export default About
+export default About;
