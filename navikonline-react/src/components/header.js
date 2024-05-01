@@ -32,7 +32,7 @@ const Header = (props) => {
 
   return (
     <header className="header-header">
-      <Link to="https://navikonline.in">
+      <Link to="/">
         {" "}
         {/* Link wraps the logo image */}
         <img
