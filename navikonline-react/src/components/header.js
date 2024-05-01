@@ -8,6 +8,7 @@ const Header = (props) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleToggleMobileMenu = () => {
+    console.log("clicked");
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
