@@ -68,7 +68,8 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
-  transition: transform 0.3s ease; /* Add transition for smooth animation */
+  transform: translateX(100%); /* Start off-screen */
+  transition: transform 0.3s ease; /* Transition animation */
 }
 
 .mobile-menu-open {
