@@ -10,7 +10,7 @@ import {
 import "./style.css";
 import Home from "./views/home";
 import Blog from "./views/blog";
-import SinglePost from "./components/SinglePost";
+import SinglePost from "./components/singlepost";
 import NotFound from "./views/not-found";
 
 const App = () => {
