@@ -1,3 +1,4 @@
+// Header Component with Mobile Menu Fix
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -19,12 +20,18 @@ const Header = (props) => {
           <span className="header-text">
             <Link to="/">{props.text}</Link>
           </span>
-          <span className="header-text1">{props.text1}</span>
-          <span className="header-text2">{props.text2}</span>
+          <span className="header-text1">
+            <Link to="/about">{props.text1}</Link>
+          </span>
+          <span className="header-text2">
+            <Link to="/courses">{props.text2}</Link>
+          </span>
           <span className="header-text3">
             <Link to="/blog">{props.text3}</Link>
           </span>
-          <span className="header-text4">{props.text4}</span>
+          <span className="header-text4">
+            <Link to="/contact">{props.text4}</Link>
+          </span>
         </nav>
       </div>
 
@@ -41,25 +48,6 @@ const Header = (props) => {
 
       {isMobileMenuOpen && (
         <div className="header-mobile-menu">
-          <div className="header-nav2">
-            <div className="header-container">
-              <img
-                alt={props.imageAlt1}
-                src={props.imageSrc1}
-                className="header-image1"
-              />
-              <div
-                className="header-menu-close"
-                onClick={handleToggleMobileMenu}
-              >
-                <svg viewBox="0 0 1024 1024" className="header-icon02">
-                  <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* Place mobile menu links here */}
           <nav className="mobile-nav-links">
             <Link to="/">{props.text}</Link>
             <Link to="/about">{props.text1}</Link>
@@ -74,12 +62,13 @@ const Header = (props) => {
 };
 
 Header.defaultProps = {
+  text: "Home",
+  text1: "About",
+  text2: "Courses",
   text3: "Blog",
   text4: "Contact",
-  text1: "About",
   login: "Login",
   register: "Register",
-  text: "Home",
   imageSrc: "/design-1500h.webp",
   imageSrc1: "https://presentation-website-assets.teleporthq.io/logos/logo.png",
   imageAlt: "Logo",
@@ -87,12 +76,13 @@ Header.defaultProps = {
 };
 
 Header.propTypes = {
+  text: PropTypes.string,
+  text1: PropTypes.string,
+  text2: PropTypes.string,
   text3: PropTypes.string,
   text4: PropTypes.string,
-  text1: PropTypes.string,
   login: PropTypes.string,
   register: PropTypes.string,
-  text: PropTypes.string,
   imageSrc: PropTypes.string,
   imageSrc1: PropTypes.string,
   imageAlt: PropTypes.string,
