@@ -19,6 +19,36 @@ class Course(models.Model):
         verbose_name = 'Course'
         verbose_name_plural = 'Courses'
     
+class Lesson(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='lessons')
+    title = models.CharField(max_length=100)
+    description = CKEditor5Field('Text', config_name='extends', default = 'Enter text here')
+    created = models.DateTimeField(default=datetime.now)
+    lottie_icon = models.URLField(max_length=200, blank=True, null=True)
+    instructor = models.ForeignKey(User, on_delete=models.CASCADE)
+    duration = models.DurationField(null=True, blank=True, verbose_name="Duration")
+
+    class Meta:
+        verbose_name = 'Lesson'
+        verbose_name_plural = 'Lessons'
+
+    def __str__(self):
+        return self.title
+
+class Module(models.Model):
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='modules')
+    title = models.CharField(max_length=100)
+    description = CKEditor5Field('Text', config_name='extends', default = 'Enter text here')
+    created = models.DateTimeField(default=datetime.now)
+    instructor = models.ForeignKey(User, on_delete=models.CASCADE)
+    duration = models.DurationField(null=True, blank=True, verbose_name="Duration")
+
+    class Meta:
+        verbose_name = 'Module'
+        verbose_name_plural = 'Modules'
+
+    def __str__(self):
+        return self.title
 
 class Category(models.Model):
     name = models.CharField(max_length=255)

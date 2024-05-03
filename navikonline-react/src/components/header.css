@@ -56,26 +56,6 @@
   height: var(--dl-size-size-xsmall);
 }
 
-.header-mobile-menu {
-  top: 0;
-  right: 0; /* Position the menu on the right side */
-  width: 100%;
-  height: 100vh;
-  display: none; /* Hide by default */
-  padding: 32px;
-  z-index: 100;
-  position: fixed; /* Position fixed to cover the viewport */
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #fff;
-  transform: translateX(100%); /* Start off-screen */
-  transition: transform 0.3s ease; /* Transition animation */
-}
-
-.mobile-menu-open {
-  transform: translateX(0); /* Slide in from right when open */
-}
-
 .header-nav2 {
   display: flex;
   align-items: flex-start;
@@ -147,6 +127,22 @@
     display: flex; /* Show hamburger menu */
     align-items: center;
     justify-content: center;
+  }
+
+  .mobile-menu-open {
+    position: absolute;
+    min-width: 100vw;
+    height: 38vh;
+    margin-top: 104px;
+    display: flex;
+    align-items: center; /* Hide by default */
+    padding: 32px;
+    z-index: 100; /* Position fixed to cover the viewport */
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    color: black; /* Start off-screen */
+    transition: transform 0.3s ease; /* Transition animation */
   }
 }
 
