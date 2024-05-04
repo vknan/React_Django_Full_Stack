@@ -91,6 +91,8 @@ const Header = (props) => {
             </Link>
             <Link to="/blog">{props.text3}</Link>
             <Link to="/contact">{props.text4}</Link>
+            <Link to="/login">{props.login}</Link>
+            <Link to="/register">{props.register}</Link>
           </>
         </nav>
       )}
