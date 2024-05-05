@@ -9,7 +9,7 @@ This is a Full Stack React Django Application
 # Install git from [https://git-scm.com/](https://git-scm.com/) this website
 - download and install latest git version on your system.
 - follow the instructions on screen and install.
-- 
+ 
 # Clone the Repository:
 - `git clone https://github.com/vknan/React_Django_Full_Stack.git` or
 - via ssh `git clone git@github.com:vknan/React_Django_Full_Stack.git`
