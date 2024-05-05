@@ -44,7 +44,11 @@ admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Contact, ContactAdmin)
-
+admin.site.register(Lesson)
+admin.site.register(Module)
+admin.site.register(Quiz)
+admin.site.register(Enrollment)
+admin.site.register(Tag)
 #------------------------------------------------------------------------------------------------
 
 # from .models import ProductCategory, Product, Customer, OrderItem, Review

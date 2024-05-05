@@ -24,8 +24,7 @@ class Lesson(models.Model):
     title = models.CharField(max_length=100)
     description = CKEditor5Field('Text', config_name='extends', default = 'Enter text here')
     created = models.DateTimeField(default=datetime.now)
-    lottie_icon = models.URLField(max_length=200, blank=True, null=True)
-    instructor = models.ForeignKey(User, on_delete=models.CASCADE)
+    # instructor = models.ForeignKey(User, on_delete=models.CASCADE)
     duration = models.DurationField(null=True, blank=True, verbose_name="Duration")
 
     class Meta:
@@ -49,6 +48,59 @@ class Module(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Quiz(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
+class Enrollment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    enrolled_at = models.DateTimeField(auto_now_add=True)
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+
+class Progress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    completed = models.BooleanField(default=False)
+    completed_at = models.DateTimeField(null=True, blank=True)
+
+class DiscussionPost(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
