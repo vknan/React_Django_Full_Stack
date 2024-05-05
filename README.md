@@ -12,6 +12,15 @@ Api End points
 3. `http:127.0.0.1:8000/api/comments/`
 4. `http:127.0.0.1:8000/api/contacts/`
 5. `http:127.0.0.1:8000/api/categories/`
+6. `http:127.0.0.1:8000/api/enrollments/`
+7. `http:127.0.0.1:8000/api/abouts/`
+8. `http:127.0.0.1:8000/api/tags/`
+9. `http:127.0.0.1:8000/api/lessons/`
+10. `http:127.0.0.1:8000/api/quiz/`
+11. `http:127.0.0.1:8000/api/modules/`
+12. `http:127.0.0.1:8000/api/discussionposts/`
+13. `http:127.0.0.1:8000/api/progress/`
+
 
 
 # Running React Application (Front End Terminal)
