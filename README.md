@@ -7,6 +7,7 @@ This is a Full Stack React Django Application
 - While Installing ensure you tick the box "Add to Python 3.12 to Path"
 - Check installed version using `python --version` or `python3 --version`
 - By this you have `PIP` is also installed on your system.
+- you can check version by using command `pip --version`.
 
 # Running Django Application (Backend Terminal)
 1. Change directory inside Django project by `cd Vijay_Portfolio`
