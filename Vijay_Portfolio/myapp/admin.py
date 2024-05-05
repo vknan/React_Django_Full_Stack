@@ -49,6 +49,9 @@ admin.site.register(Module)
 admin.site.register(Quiz)
 admin.site.register(Enrollment)
 admin.site.register(Tag)
+admin.site.register(about)
+admin.site.register(DiscussionPost)
+admin.site.register(Progress)
 #------------------------------------------------------------------------------------------------
 
 # from .models import ProductCategory, Product, Customer, OrderItem, Review
