@@ -13,7 +13,7 @@ This is a Full Stack React Django Application
 
 # Running Django Application (Backend Terminal)
 1. Change directory inside Django project by `cd Vijay_Portfolio`
-2. Use `Powershell` or `Git Bash` to create virtual environment.
+2. Use `Powershell` or `Git Bash` to create virtual environment by following below instructions given.
 3. Install all required python libraries using `pip install -r requirements.txt` in your virtual environment.
 4. run django server `python manage.py runserver --settings=myproject.settings.development`
 
