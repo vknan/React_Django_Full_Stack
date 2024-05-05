@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 SITE_ID = 1
 CORS_ALLOWED_ORIGINS = [
     'https://www.navikonline.in',
+    'http://localhost:3000',
      # Example: React frontend URL
     # Add more origins as needed
 ]

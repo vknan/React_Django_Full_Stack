@@ -12,7 +12,7 @@ const SinglePost = () => {
     const fetchPost = async () => {
       try {
         const response = await fetch(
-          `https://vknan.pythonanywhere.com/api/posts/${postId}?format=json`
+          `http://127.0.0.1:8000/api/posts/${postId}?format=json`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch post");
