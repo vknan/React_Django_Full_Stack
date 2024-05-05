@@ -17,6 +17,7 @@ This is a Full Stack React Django Application
 - configure git on your terminal.
  
 # Clone the Repository:
+- open terminal and run following commands
 - `git clone https://github.com/vknan/React_Django_Full_Stack.git` or
 - via ssh `git clone git@github.com:vknan/React_Django_Full_Stack.git`
   
