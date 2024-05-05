@@ -5,6 +5,8 @@ This is a Full Stack React Django Application
 # Install Python 3.12 version from [https://www.python.org](https://www.python.org/) website
 - For Windows download python 3.12 version executable file.
 - While Installing ensure you tick the box "Add to Python 3.12 to Path"
+  
+# Open Terminal (Powershell or Git bash)
 - Check installed version using `python --version` or `python3 --version`
 - By this you have `PIP` is also installed on your system.
 - you can check version by using command `pip --version`.
