@@ -6,6 +6,11 @@ This is a Full Stack React Django Application
 - For Windows download python 3.12 version executable file.
 - While Installing ensure you tick the box "Add to Python 3.12 to Path"
 
+# Open Terminal (Powershell or Git bash)
+- Check installed version using `python --version` or `python3 --version`
+- By this you have `PIP` is also installed on your system.
+- you can check version by using command `pip --version`.
+
 # Install git from [https://git-scm.com/](https://git-scm.com/) this website
 - download and install latest git version on your system.
 - follow the instructions on screen and install.
@@ -15,11 +20,6 @@ This is a Full Stack React Django Application
 - `git clone https://github.com/vknan/React_Django_Full_Stack.git` or
 - via ssh `git clone git@github.com:vknan/React_Django_Full_Stack.git`
   
-# Open Terminal (Powershell or Git bash)
-- Check installed version using `python --version` or `python3 --version`
-- By this you have `PIP` is also installed on your system.
-- you can check version by using command `pip --version`.
-
 # Running Django Application (Backend Terminal)
 1. Change directory inside Django project by `cd Vijay_Portfolio`
 2. Use `Powershell` or `Git Bash` to create virtual environment by following below instructions given.
