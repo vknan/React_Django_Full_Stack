@@ -28,6 +28,46 @@ urlpatterns = [
     path('api/categories/<int:pk>', views.CategoryDelete.as_view(), name='category-delete'),
     path('api/categories/<int:pk>', views.CategoryUpdate.as_view(), name='category-update'),
 
+    path('api/abouts/', views.aboutList.as_view(), name='about-list'),
+    path('api/abouts/<int:pk>', views.aboutDetail.as_view(), name='about-detail'),
+    path('api/abouts/<int:pk>', views.aboutDelete.as_view(), name='about-delete'),
+    path('api/abouts/<int:pk>', views.aboutUpdate.as_view(), name='about-update'),
+
+    path('api/tags/', views.TagList.as_view(), name='tag-list'),
+    path('api/tags/<int:pk>', views.TagDetail.as_view(), name='tag-detail'),
+    path('api/tags/<int:pk>', views.TagDelete.as_view(), name='tag-delete'),
+    path('api/tags/<int:pk>', views.TagUpdate.as_view(), name='tag-update'),
+
+    path('api/lessons/', views.LessonList.as_view(), name='lesson-list'),
+    path('api/lessons/<int:pk>', views.LessonDetail.as_view(), name='lesson-detail'),
+    path('api/lessons/<int:pk>', views.LessonDelete.as_view(), name='lesson-delete'),
+    path('api/lessons/<int:pk>', views.LessonUpdate.as_view(), name='lesson-update'),
+
+    path('api/quiz/', views.QuizList.as_view(), name='quiz-list'),
+    path('api/quiz/<int:pk>', views.QuizDetail.as_view(), name='quiz-detail'),
+    path('api/quiz/<int:pk>', views.QuizDelete.as_view(), name='quiz-delete'),
+    path('api/quiz/<int:pk>', views.QuizUpdate.as_view(), name='quiz-update'),
+
+    path('api/modules/', views.ModuleList.as_view(), name='module-list'),
+    path('api/modules/<int:pk>', views.ModuleDetail.as_view(), name='module-detail'),
+    path('api/modules/<int:pk>', views.ModuleDelete.as_view(), name='module-delete'),
+    path('api/modules/<int:pk>', views.ModuleUpdate.as_view(), name='module-update'),
+
+    path('api/enrollments/', views.EnrollmentList.as_view(), name='enrollments-list'),
+    path('api/enrollments/<int:pk>', views.EnrollmentDetail.as_view(), name='enrollments-detail'),
+    path('api/enrollments/<int:pk>', views.EnrollmentDelete.as_view(), name='enrollments-delete'),
+    path('api/enrollments/<int:pk>', views.EnrollmentUpdate.as_view(), name='enrollments-update'),
+
+    path('api/discussionposts/', views.DiscussionPostList.as_view(), name='discussionpost-list'),
+    path('api/discussionposts/<int:pk>', views.DiscussionPostDetail.as_view(), name='discussionpost-detail'),
+    path('api/discussionposts/<int:pk>', views.DiscussionPostDelete.as_view(), name='discussionpost-delete'),
+    path('api/discussionposts/<int:pk>', views.DiscussionPostUpdate.as_view(), name='discussionpost-update'),
+
+    path('api/progress/', views.ProgressList.as_view(), name='progres-list'),
+    path('api/progress/<int:pk>', views.ProgressDetail.as_view(), name='progres-detail'),
+    path('api/progress/<int:pk>', views.ProgressDelete.as_view(), name='progres-delete'),
+    path('api/progress/<int:pk>', views.ProgressUpdate.as_view(), name='progres-update'),
+
     path('user/register/', views.login_functionality.register, name = 'register'),
     path('accounts/login/', views.login_functionality.login, name = 'login'),
     # path('logout/', views.login_functionality.logout, name = 'logout'),

@@ -91,7 +91,17 @@ class DiscussionPost(models.Model):
 
 
 
+class about(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(upload_to = 'about/')
+    created = models.DateTimeField(default = datetime.now)
 
+    def __str__(self):
+        return self.name
+    class meta:
+        verbose_name = 'About'
+        verbose_name_plural = 'Abouts'
 
 
 

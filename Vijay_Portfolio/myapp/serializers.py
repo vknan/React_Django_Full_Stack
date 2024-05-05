@@ -38,3 +38,59 @@ class ContactSerializer(serializers.ModelSerializer):
         model = Contact
         fields = '__all__'
 
+class aboutSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = about
+        fields = '__all__'
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = '__all__'
+
+
+
+class LessonSerializer(serializers.ModelSerializer):
+    course = CourseSerializer()
+    class Meta:
+        model = Lesson
+        fields = '__all__'
+
+
+
+
+class ModuleSerializer(serializers.ModelSerializer):
+    instructor = UserSerializer()
+    lesson = LessonSerializer()
+    class Meta:
+        model = Module
+        fields = '__all__'
+
+
+class QuizSerializer(serializers.ModelSerializer):
+    course = CourseSerializer()
+    class Meta:
+        model = Quiz
+        fields = '__all__' 
+
+class EnrollmentSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    course = CourseSerializer()
+    class Meta:
+        model = Enrollment
+        fields = '__all__'
+
+class DiscussionPostSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    lesson = LessonSerializer()
+    class Meta:
+        model = DiscussionPost
+        fields = '__all__'
+    
+
+class ProgressSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    lesson = LessonSerializer()
+    class Meta:
+        model = Progress
+        fields = '__all__'
