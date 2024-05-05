@@ -38,14 +38,22 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('contacted_date', 'is_resolved')
     list_editable = ('is_resolved',)
 
+class LessonAdmin(admin.ModelAdmin):
+    list_display = ('course', 'title')
+
+class ModuleAdmin(admin.ModelAdmin):
+    list_display = ('lesson', 'title')
+    
+
+
 # admin.site.register(Article, ArticleAdmin)
 admin.site.register(Course, CourseAdmin) 
 admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Lesson)
-admin.site.register(Module)
+admin.site.register(Lesson, LessonAdmin)
+admin.site.register(Module, ModuleAdmin)
 admin.site.register(Quiz)
 admin.site.register(Enrollment)
 admin.site.register(Tag)
