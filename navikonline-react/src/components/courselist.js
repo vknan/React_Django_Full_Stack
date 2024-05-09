@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./courselist.css"; // Import CSS file for card styling
 import { Player } from "@lottiefiles/react-lottie-player";
+import { Link } from "react-router-dom";
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
@@ -22,14 +23,14 @@ const CourseList = () => {
     };
 
     fetchCourses();
-  }, []); // Empty dependency array ensures useEffect runs only once on component mount
+  }, []);
 
   return (
     <div id="course">
       <h1 className="course-list-heading">Courses</h1>
       <div className="course-list">
         {courses.map((course) => (
-          <div key={course.id} className="course-card">
+          <div className="course-card">
             <Player
               src={course.lottieicon}
               loop={true}
@@ -38,13 +39,10 @@ const CourseList = () => {
               background="transparent"
               className="courses-lottie-node"
             ></Player>
-            <p className="course-title">{course.title}</p>
-            <p className="course-description">{course.description}</p>
-            {/* <p className="course-instructor">
-              Instructor: {course.instructor.username}
-            </p> */}
-
-            {/* Add more course details as needed */}
+            <Link to={`/lessons/${course.id}`}>
+              <p className="course-title">{course.title}</p>
+              <p className="course-description">{course.description}</p>
+            </Link>
           </div>
         ))}
       </div>

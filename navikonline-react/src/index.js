@@ -10,6 +10,7 @@ import {
 import "./style.css";
 import Home from "./views/home";
 import Blog from "./views/blog";
+import LessonsPage from "./views/lesson";
 import NotFound from "./views/not-found";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <Switch>
         <Route component={Home} exact path="/" />
         <Route component={Blog} path="/blog" />
+        <Route component={LessonsPage} path="/lessons/:courseId" />
         <Route component={NotFound} path="*" />
         {/* <Redirect to="**" /> */}
       </Switch>
