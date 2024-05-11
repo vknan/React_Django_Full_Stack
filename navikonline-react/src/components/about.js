@@ -4,7 +4,7 @@ import "./about.css";
 
 const About = () => {
   const [aboutData, setAboutData] = useState([]);
-  const [showArrows, setShowArrows] = useState(false);
+
   const aboutContainerRef = useRef(null);
 
   useEffect(() => {
@@ -16,28 +16,7 @@ const About = () => {
 
     // Add event listener for scroll
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      // Clean up event listener on component unmount
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
-
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    const containerRef = aboutContainerRef.current;
-
-    // Check if containerRef is defined and not null
-    if (containerRef) {
-      const containerTop = containerRef.offsetTop;
-      const containerHeight = containerRef.offsetHeight;
-
-      // Show arrows if user has scrolled past the top of the about container and before the end of the container
-      setShowArrows(
-        scrollY > containerTop && scrollY < containerTop + containerHeight
-      );
-    }
-  };
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -62,25 +41,6 @@ const About = () => {
             </div>
           </div>
         ))}
-        {/* Show arrows based on state */}
-        {showArrows && (
-          <>
-            <div
-              className="scroll-up-arrow"
-              onClick={() => scrollToSection(`section-${aboutData[0].id}`)}
-            >
-              &uarr;
-            </div>
-            <div
-              className="scroll-down-arrow"
-              onClick={() =>
-                scrollToSection(`section-${aboutData[aboutData.length - 1].id}`)
-              }
-            >
-              &darr;
-            </div>
-          </>
-        )}
       </div>
     </div>
   );
