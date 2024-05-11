@@ -50,14 +50,14 @@
 }
 
 /* Set max-width for code blocks */
-.ck-content pre {
+.singlepost-container pre {
   max-width: 100%;
   overflow-x: auto; /* Enable horizontal scrolling */
 }
 
 /* Media query for mobile devices */
 @media (max-width: 600px) {
-  .ck-content pre {
+  .singlepost-container pre {
     /* Adjust width and font size for smaller screens */
     font-size: 14px; /* Adjust font size as needed */
     padding: 10px;
