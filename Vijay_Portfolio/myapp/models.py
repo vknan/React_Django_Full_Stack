@@ -6,6 +6,7 @@ from django_ckeditor_5.fields import CKEditor5Field
 # Create your models here.
 
 
+
 class Course(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()

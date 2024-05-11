@@ -11,6 +11,8 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseServerError
 from rest_framework import generics
 from .serializers import *
+from django.views.decorators.http import require_POST
+
 
 import os
 # from payu import PayUmoneySdk
