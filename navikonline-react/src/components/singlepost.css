@@ -1,26 +1,50 @@
+/* singlepost.css */
+
 .singlepost-container {
-  max-width: 800px;
+  width: 80%;
   margin: 0 auto;
   padding: 20px;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .singlepost-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .singlepost-description {
-  font-size: 1.1rem;
+  font-size: 16px;
   line-height: 1.6;
-  margin-bottom: 20px;
 }
 
-@media (max-width: 320px) {
+/* Media query for tablets and smaller screens */
+@media (max-width: 800px) {
+  .singlepost-container {
+    width: 90%; /* Adjust width for smaller screens */
+    padding: 15px;
+  }
+
   .singlepost-title {
-    font-size: 1.8rem;
+    font-size: 22px; /* Reduce title font size */
   }
 
   .singlepost-description {
-    font-size: 1rem;
+    font-size: 14px; /* Reduce description font size */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .singlepost-container {
+    width: 100%; /* Full width on smaller devices */
+    padding: 10px;
+  }
+
+  .singlepost-title {
+    font-size: 20px; /* Further reduce title font size */
+  }
+
+  .singlepost-description {
+    font-size: 14px;
   }
 }
