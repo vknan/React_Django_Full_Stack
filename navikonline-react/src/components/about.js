@@ -17,7 +17,9 @@ const About = () => {
 
   return (
     <div>
-      <h1 className="about-title">Our Commitment</h1>
+      <h1 id="about" className="about-title">
+        Our Commitment
+      </h1>
       <div ref={aboutContainerRef} className="about-container">
         {aboutData.map((item) => (
           <div key={item.id} className="about-card">
