@@ -1,5 +1,5 @@
 import React from "react";
-import Lesson from "../components/lesson";
+import LessonComponent from "../components/lesson";
 
 const LessonsPage = ({ match }) => {
   // Extract the courseId from the URL params using destructuring
@@ -8,7 +8,8 @@ const LessonsPage = ({ match }) => {
   return (
     <div>
       {/* Render the Lesson component with the courseId */}
-      <Lesson courseId={courseId} />
+
+      <LessonComponent courseId={courseId} />
     </div>
   );
 };

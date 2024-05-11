@@ -1,96 +1,56 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import "./lesson.css";
 
-const Lesson = ({ courseId }) => {
-  const [lessons, setLessons] = useState([]);
-  const [selectedLesson, setSelectedLesson] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+const LessonComponent = ({ courseId }) => {
   const [courseTitle, setCourseTitle] = useState("");
-  const [lessonDescription, setLessonDescription] = useState("");
+  const [lessons, setLessons] = useState([]);
 
   useEffect(() => {
-    const fetchLessons = async (courseId) => {
+    // Function to fetch lessons and course details for a specific course
+    const fetchCourseAndLessons = async () => {
       try {
-        const response = await fetch(
-          `http://127.0.0.1:8000/api/lessons/?course_id=${courseId}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch lessons");
-        }
-        const data = await response.json();
-        setLessons(data);
-      } catch (error) {
-        console.error("Error fetching lessons:", error);
-      }
-    };
+        // Fetch course details first
+        // const moduleResponse = await axios.get(
+        //   `http://127.0.0.1:8000/api/modules/${moduleId}`
+        // );
+        // setModules(moduleResponse.data.title);
 
-    const fetchCourseTitle = async (courseId) => {
-      try {
-        const response = await fetch(
+        const courseResponse = await axios.get(
           `http://127.0.0.1:8000/api/courses/${courseId}`
         );
-        if (!response.ok) {
-          throw new Error("Failed to fetch course");
-        }
-        const data = await response.json();
-        setCourseTitle(data.title); // Set the course title
+        setCourseTitle(courseResponse.data.title); // Assuming course title is available in the response
+
+        // Then fetch lessons for the course
+        const lessonsResponse = await axios.get(
+          `http://127.0.0.1:8000/api/lessons/?course_id=${courseId}`
+        );
+        setLessons(lessonsResponse.data); // Assuming lessons data is returned as an array
       } catch (error) {
-        console.error("Error fetching course:", error);
+        console.error("Error fetching course and lessons:", error);
       }
     };
 
-    if (courseId) {
-      fetchLessons(courseId);
-      fetchCourseTitle(courseId);
-    }
-  }, [courseId]);
-
-  const handleDropdownToggle = () => {
-    setIsOpen(!isOpen);
-  };
-  const handleLessonSelect = (lesson) => {
-    setSelectedLesson(lesson);
-    setLessonDescription(lesson.description); // Set lesson description on select
-    setIsOpen(false); // Close the dropdown after selecting a lesson
-  };
+    // Call the fetchCourseAndLessons function
+    fetchCourseAndLessons();
+  }, [courseId]); // Fetch data whenever courseId prop changes
 
   return (
     <div className="lesson-container">
-      <h1>{courseTitle}</h1>
-      <div className="dropdown">
-        <button className="dropdown-toggle" onClick={handleDropdownToggle}>
-          {selectedLesson
-            ? selectedLesson.title
-            : courseTitle || "Select a Lesson"}
-          <FontAwesomeIcon icon={faChevronDown} />
-        </button>
-        {isOpen && (
-          <div className="dropdown-menu">
-            {lessons.map((lesson) => (
-              <div
-                key={lesson.id}
-                className="dropdown-item"
-                onClick={() => handleLessonSelect(lesson)}
-              >
-                {lesson.title}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      {selectedLesson && (
-        <div className="lesson-details">
-          {/* <h3>{selectedLesson.title}</h3> */}
-          <div
-            className="lesson-description"
-            dangerouslySetInnerHTML={{ __html: lessonDescription }}
-          />
-        </div>
-      )}
+      <h2 className="lesson-title">{courseTitle}</h2>
+      <ul className="lesson-list">
+        {lessons.map((lesson) => (
+          <li key={lesson.id} className="lesson-item">
+            <Link to={`/lessons/${lesson.id}`}>
+              <strong>{lesson.title}</strong>
+            </Link>
+            {/* Add more details as needed */}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default Lesson;
+export default LessonComponent;

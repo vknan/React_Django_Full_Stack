@@ -23,7 +23,7 @@ class Course(models.Model):
 class Lesson(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='lessons')
     title = models.CharField(max_length=100)
-    description = CKEditor5Field('Text', config_name='extends', default = 'Enter text here')
+    
     created = models.DateTimeField(default=datetime.now)
     # instructor = models.ForeignKey(User, on_delete=models.CASCADE)
     duration = models.DurationField(null=True, blank=True, verbose_name="Duration")
@@ -38,9 +38,9 @@ class Lesson(models.Model):
 class Module(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='modules')
     title = models.CharField(max_length=100)
-    description = CKEditor5Field('Text', config_name='extends', default = 'Enter text here')
+    
     created = models.DateTimeField(default=datetime.now)
-    instructor = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     duration = models.DurationField(null=True, blank=True, verbose_name="Duration")
 
     class Meta:
@@ -50,7 +50,20 @@ class Module(models.Model):
     def __str__(self):
         return self.title
 
+class SubModule(models.Model):
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='submodules')
+    title = models.CharField(max_length=100)
+    description = CKEditor5Field('Text', config_name='extends', default = 'Enter text here')
+    created = models.DateTimeField(default=datetime.now)
+    instructor = models.ForeignKey(User, on_delete=models.CASCADE)
+    duration = models.DurationField(null=True, blank=True, verbose_name="Duration")
 
+    class Meta:
+        verbose_name = 'SubModule'
+        verbose_name_plural = 'SubModules'
+
+    def __str__(self):
+        return self.title
 
 class Quiz(models.Model):
     title = models.CharField(max_length=100)

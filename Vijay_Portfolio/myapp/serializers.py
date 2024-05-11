@@ -60,12 +60,16 @@ class LessonSerializer(serializers.ModelSerializer):
 
 
 class ModuleSerializer(serializers.ModelSerializer):
-    instructor = UserSerializer()
     lesson = LessonSerializer()
     class Meta:
         model = Module
         fields = '__all__'
-
+class SubModuleSerializer(serializers.ModelSerializer):
+    module = ModuleSerializer()
+    instructor = UserSerializer()
+    class Meta:
+        model = SubModule
+        fields = '__all__'
 
 class QuizSerializer(serializers.ModelSerializer):
     course = CourseSerializer()

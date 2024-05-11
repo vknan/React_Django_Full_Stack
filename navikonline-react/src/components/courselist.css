@@ -25,6 +25,11 @@
   padding: 20px;
   border-radius: 8px;
   text-align: center; /* Center-align card content */
+  transition: background-color 0.3s ease;
+}
+
+.course-card:hover {
+  background-color: #f3f3f3;
 }
 
 .course-title {

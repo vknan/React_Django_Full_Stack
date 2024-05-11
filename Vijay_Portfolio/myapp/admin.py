@@ -44,7 +44,8 @@ class LessonAdmin(admin.ModelAdmin):
 class ModuleAdmin(admin.ModelAdmin):
     list_display = ('lesson', 'title')
     
-
+class SubModuleAdmin(admin.ModelAdmin):
+    list_display = ('module', 'title')
 
 # admin.site.register(Article, ArticleAdmin)
 admin.site.register(Course, CourseAdmin) 
@@ -54,6 +55,7 @@ admin.site.register(Comment, CommentAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Module, ModuleAdmin)
+admin.site.register(SubModule, SubModuleAdmin)
 admin.site.register(Quiz)
 admin.site.register(Enrollment)
 admin.site.register(Tag)

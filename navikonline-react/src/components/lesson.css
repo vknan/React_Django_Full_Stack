@@ -1,82 +1,23 @@
-/* lesson.module.css */
-
 .lesson-container {
-  max-width: 800px;
-  margin: 0 auto;
+  margin: 20px;
   padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.lesson-container h1 {
+.lesson-title {
   font-size: 24px;
+  font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.dropdown-toggle:hover {
-  background-color: #f0f0f0;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-item {
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-item:hover {
-  background-color: #f0f0f0;
-}
-
-.lesson-details {
-  margin-top: 20px;
-}
-
-.lesson-description {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.lesson-description img {
-  max-width: 100%;
-  height: auto;
   margin-bottom: 15px;
 }
 
-@media (max-width: 768px) {
-  .lesson-container {
-    padding: 15px;
-  }
-  .lesson-container h1 {
-    font-size: 20px;
-  }
+.lesson-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lesson-item {
+  margin-bottom: 10px;
 }

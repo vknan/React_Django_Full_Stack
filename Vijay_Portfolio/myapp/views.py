@@ -26,12 +26,6 @@ class CourseDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
-class CourseDelete(generics.DestroyAPIView):
-    queryset = Course.objects.all()
-    serializer_class = CourseSerializer
-class CourseUpdate(generics.UpdateAPIView):
-    queryset = Course.objects.all()
-    serializer_class = CourseSerializer
 
 #=========================================================================================================================================
 class PostList(generics.ListCreateAPIView):
@@ -42,12 +36,6 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-class PostDelete(generics.DestroyAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-class PostUpdate(generics.UpdateAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
 #=========================================================================================================================================
 class CommentList(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
@@ -57,12 +45,6 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
-class CommentDelete(generics.DestroyAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-class CommentUpdate(generics.UpdateAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
 #=========================================================================================================================================
 class ContactList(generics.ListCreateAPIView):
     queryset = Contact.objects.all()
@@ -72,12 +54,6 @@ class ContactDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
 
-class ContactDelete(generics.DestroyAPIView):
-    queryset = Contact.objects.all()
-    serializer_class = ContactSerializer
-class ContactUpdate(generics.UpdateAPIView):
-    queryset = Contact.objects.all()
-    serializer_class = ContactSerializer
 #=========================================================================================================================================
 class CategoryList(generics.ListCreateAPIView):
     queryset = Category.objects.all()
@@ -87,12 +63,6 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-class CategoryDelete(generics.DestroyAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-class CategoryUpdate(generics.UpdateAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
 #=========================================================================================================================================
 class aboutList(generics.ListCreateAPIView):
     queryset = about.objects.all()
@@ -102,12 +72,6 @@ class aboutDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = about.objects.all()
     serializer_class = aboutSerializer
 
-class aboutDelete(generics.DestroyAPIView):
-    queryset = about.objects.all()
-    serializer_class = aboutSerializer
-class aboutUpdate(generics.UpdateAPIView):
-    queryset = about.objects.all()
-    serializer_class = aboutSerializer
 #=========================================================================================================================================
 class TagList(generics.ListCreateAPIView):
     queryset = Tag.objects.all()
@@ -117,12 +81,6 @@ class TagDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
 
-class TagDelete(generics.DestroyAPIView):
-    queryset = Tag.objects.all()
-    serializer_class = TagSerializer
-class TagUpdate(generics.UpdateAPIView):
-    queryset = Tag.objects.all()
-    serializer_class = TagSerializer
 #=========================================================================================================================================
 class LessonList(generics.ListCreateAPIView):
     serializer_class = LessonSerializer
@@ -138,12 +96,6 @@ class LessonDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
 
-class LessonDelete(generics.DestroyAPIView):
-    queryset = Lesson.objects.all()
-    serializer_class = LessonSerializer
-class LessonUpdate(generics.UpdateAPIView):
-    queryset = Lesson.objects.all()
-    serializer_class = LessonSerializer
 #=========================================================================================================================================
 class ModuleList(generics.ListCreateAPIView):
     queryset = Module.objects.all()
@@ -153,12 +105,6 @@ class ModuleDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Module.objects.all()
     serializer_class = ModuleSerializer
 
-class ModuleDelete(generics.DestroyAPIView):
-    queryset = Module.objects.all()
-    serializer_class = ModuleSerializer
-class ModuleUpdate(generics.UpdateAPIView):
-    queryset = Module.objects.all()
-    serializer_class = ModuleSerializer
 #=========================================================================================================================================
 class QuizList(generics.ListCreateAPIView):
     queryset = Quiz.objects.all()
@@ -168,12 +114,6 @@ class QuizDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
 
-class QuizDelete(generics.DestroyAPIView):
-    queryset = Quiz.objects.all()
-    serializer_class = QuizSerializer
-class QuizUpdate(generics.UpdateAPIView):
-    queryset = Quiz.objects.all()
-    serializer_class = QuizSerializer
 #=========================================================================================================================================
 class EnrollmentList(generics.ListCreateAPIView):
     queryset = Enrollment.objects.all()
@@ -183,12 +123,6 @@ class EnrollmentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
 
-class EnrollmentDelete(generics.DestroyAPIView):
-    queryset = Enrollment.objects.all()
-    serializer_class = EnrollmentSerializer
-class EnrollmentUpdate(generics.UpdateAPIView):
-    queryset = Enrollment.objects.all()
-    serializer_class = EnrollmentSerializer
 #=========================================================================================================================================
 
 class DiscussionPostList(generics.ListCreateAPIView):
@@ -199,12 +133,6 @@ class DiscussionPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = DiscussionPost.objects.all()
     serializer_class = DiscussionPostSerializer
 
-class DiscussionPostDelete(generics.DestroyAPIView):
-    queryset = DiscussionPost.objects.all()
-    serializer_class = DiscussionPostSerializer
-class DiscussionPostUpdate(generics.UpdateAPIView):
-    queryset = DiscussionPost.objects.all()
-    serializer_class = DiscussionPostSerializer
 #=========================================================================================================================================
 
 class ProgressList(generics.ListCreateAPIView):
@@ -215,13 +143,14 @@ class ProgressDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Progress.objects.all()
     serializer_class = ProgressSerializer
 
-class ProgressDelete(generics.DestroyAPIView):
-    queryset = Progress.objects.all()
-    serializer_class = ProgressSerializer
-class ProgressUpdate(generics.UpdateAPIView):
-    queryset = Progress.objects.all()
-    serializer_class = ProgressSerializer
 #=========================================================================================================================================
+class SubModuleList(generics.ListCreateAPIView):
+    queryset = SubModule.objects.all()
+    serializer_class = SubModuleSerializer
+
+class SubModuleDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SubModule.objects.all()
+    serializer_class = SubModuleSerializer
 #=========================================================================================================================================
 #=========================================================================================================================================
 #=========================================================================================================================================
