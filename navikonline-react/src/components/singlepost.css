@@ -67,6 +67,8 @@
 
 /* CSS for mobile responsiveness */
 
+/* CSS for mobile responsiveness */
+
 /* Ensure images are responsive */
 .image {
   max-width: 100%;
@@ -76,11 +78,9 @@
   margin-right: auto;
 }
 
-/* Adjust image alignment on smaller screens */
+/* Adjust image size and alignment on smaller screens */
 @media (max-width: 600px) {
   .image {
-    float: none; /* Clear float for smaller screens */
-    width: 100%; /* Full width on smaller screens */
-    margin: 0; /* Reset margin */
+    width: 80%; /* Adjust width for smaller screens */
   }
 }
