@@ -42,7 +42,7 @@ const LessonComponent = ({ courseId }) => {
       <ul className="lesson-list">
         {lessons.map((lesson) => (
           <li key={lesson.id} className="lesson-item">
-            <Link to={`/lessons/${lesson.id}`}>
+            <Link to={`/api/lessons/${lesson.id}`}>
               <strong>{lesson.title}</strong>
             </Link>
             {/* Add more details as needed */}
