@@ -9,7 +9,7 @@ const About = () => {
 
   useEffect(() => {
     // Fetch data from the API endpoint
-    fetch("http://127.0.0.1:8000/api/abouts/")
+    fetch("https://vknan.pythonanywhere.com/api/abouts/")
       .then((response) => response.json())
       .then((data) => setAboutData(data))
       .catch((error) => console.error("Error fetching about data:", error));

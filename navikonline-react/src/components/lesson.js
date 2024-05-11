@@ -18,13 +18,13 @@ const LessonComponent = ({ courseId }) => {
         // setModules(moduleResponse.data.title);
 
         const courseResponse = await axios.get(
-          `http://127.0.0.1:8000/api/courses/${courseId}`
+          `https://vknan.pythonanywhere.com/api/courses/${courseId}`
         );
         setCourseTitle(courseResponse.data.title); // Assuming course title is available in the response
 
         // Then fetch lessons for the course
         const lessonsResponse = await axios.get(
-          `http://127.0.0.1:8000/api/lessons/?course_id=${courseId}`
+          `https://vknan.pythonanywhere.com/api/lessons/?course_id=${courseId}`
         );
         setLessons(lessonsResponse.data); // Assuming lessons data is returned as an array
       } catch (error) {
