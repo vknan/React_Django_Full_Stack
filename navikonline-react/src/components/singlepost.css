@@ -48,3 +48,19 @@
     font-size: 14px;
   }
 }
+
+/* Set max-width for code blocks */
+.ck-content pre {
+  max-width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .ck-content pre {
+    /* Adjust width and font size for smaller screens */
+    font-size: 14px; /* Adjust font size as needed */
+    padding: 10px;
+    word-wrap: break-word; /* Allow long words to break into multiple lines */
+  }
+}
