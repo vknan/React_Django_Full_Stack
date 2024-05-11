@@ -13,20 +13,7 @@ const About = () => {
       .then((response) => response.json())
       .then((data) => setAboutData(data))
       .catch((error) => console.error("Error fetching about data:", error));
-
-    // Add event listener for scroll
-    window.addEventListener("scroll", handleScroll);
   }, []);
-
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <div>
