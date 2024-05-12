@@ -4,33 +4,53 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { Link } from "react-router-dom";
 
 const CourseList = () => {
-  const [courses, setCourses] = useState([]);
+  const [uniqueCourses, setUniqueCourses] = useState([]);
+  const [loadedCourses, setLoadedCourses] = useState([]);
 
   useEffect(() => {
-    const fetchCourses = async () => {
+    const fetchLessons = async () => {
       try {
         const response = await fetch(
-          "https://vknan.pythonanywhere.com/api/courses/?format=json"
+          "https://vknan.pythonanywhere.com/api/lessons/?format=json"
         );
         if (!response.ok) {
-          throw new Error("Failed to fetch courses");
+          throw new Error("Failed to fetch Lessons");
         }
         const data = await response.json();
-        setCourses(data);
+
+        const uniqueCourseIds = new Set();
+        const limitedCourses = [];
+
+        // Loop through lessons data to collect unique course titles and limit to 4 unique courses
+        data.forEach((lesson) => {
+          const courseId = lesson.course.id;
+          if (!uniqueCourseIds.has(courseId) && limitedCourses.length < 4) {
+            uniqueCourseIds.add(courseId);
+            limitedCourses.push({
+              id: courseId,
+              title: lesson.course.title,
+              description: lesson.course.description,
+              lottieicon: lesson.course.lottieicon,
+            });
+          }
+        });
+
+        setUniqueCourses(limitedCourses);
+        setLoadedCourses(data);
       } catch (error) {
-        console.error("Error fetching courses:", error);
+        console.error("Error fetching Lessons:", error);
       }
     };
 
-    fetchCourses();
+    fetchLessons();
   }, []);
 
   return (
     <div id="course">
       <h1 className="course-list-heading">Courses</h1>
       <div className="course-list">
-        {courses.map((course) => (
-          <div className="course-card">
+        {uniqueCourses.map((course) => (
+          <div key={course.id} className="course-card">
             <Player
               src={course.lottieicon}
               loop={true}
@@ -39,7 +59,12 @@ const CourseList = () => {
               background="transparent"
               className="courses-lottie-node"
             ></Player>
-            <Link to={`/lessons/${course.id}`}>
+            <Link
+              to={`/lessons/${course.id}/${
+                loadedCourses.find((lesson) => lesson.course.id === course.id)
+                  ?.id
+              }`}
+            >
               <p className="course-title">{course.title}</p>
               <p className="course-description">{course.description}</p>
             </Link>

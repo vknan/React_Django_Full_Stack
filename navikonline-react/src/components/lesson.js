@@ -1,51 +1,78 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./lesson.css";
 
 const LessonComponent = ({ courseId }) => {
   const [courseTitle, setCourseTitle] = useState("");
   const [lessons, setLessons] = useState([]);
+  const [modules, setModules] = useState([]);
+  const [selectedLesson, setSelectedLesson] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
-    // Function to fetch lessons and course details for a specific course
     const fetchCourseAndLessons = async () => {
       try {
-        // Fetch course details first
-        // const moduleResponse = await axios.get(
-        //   `http://127.0.0.1:8000/api/modules/${moduleId}`
-        // );
-        // setModules(moduleResponse.data.title);
-
         const courseResponse = await axios.get(
           `https://vknan.pythonanywhere.com/api/courses/${courseId}`
         );
-        setCourseTitle(courseResponse.data.title); // Assuming course title is available in the response
+        setCourseTitle(courseResponse.data.title);
 
-        // Then fetch lessons for the course
         const lessonsResponse = await axios.get(
           `https://vknan.pythonanywhere.com/api/lessons/?course_id=${courseId}`
         );
-        setLessons(lessonsResponse.data); // Assuming lessons data is returned as an array
+        setLessons(lessonsResponse.data);
       } catch (error) {
-        console.error("Error fetching course and lessons:", error);
+        console.error("Error fetching data:", error);
       }
     };
 
-    // Call the fetchCourseAndLessons function
     fetchCourseAndLessons();
-  }, [courseId]); // Fetch data whenever courseId prop changes
+  }, [courseId]);
+
+  useEffect(() => {
+    const fetchModulesForLesson = async () => {
+      try {
+        if (selectedLesson) {
+          const modulesResponse = await axios.get(
+            `https://vknan.pythonanywhere.com/api/modules/?lesson_id=${selectedLesson.id}`
+          );
+          setModules(modulesResponse.data);
+        }
+      } catch (error) {
+        console.error("Error fetching modules:", error);
+      }
+    };
+
+    fetchModulesForLesson();
+  }, [selectedLesson]);
+
+  const handleLessonChange = (e) => {
+    const lessonId = e.target.value;
+    const selected = lessons.find((lesson) => lesson.id === parseInt(lessonId));
+    setSelectedLesson(selected || null); // Set selected lesson or null if not found
+  };
 
   return (
     <div className="lesson-container">
       <h2 className="lesson-title">{courseTitle}</h2>
-      <ul className="lesson-list">
-        {lessons.map((lesson) => (
-          <li key={lesson.id} className="lesson-item">
-            <Link to={`/modules/${lesson.id}`}>
-              <strong>{lesson.title}</strong>
-            </Link>
-            {/* Add more details as needed */}
+      <div>
+        <select
+          value={selectedLesson ? selectedLesson.id : ""}
+          onChange={handleLessonChange}
+        >
+          <option value="">Select a Lesson</option>
+          {lessons.map((lesson) => (
+            <option key={lesson.id} value={lesson.id}>
+              {lesson.title}
+            </option>
+          ))}
+        </select>
+      </div>
+      <ul className="module-list">
+        {modules.map((module) => (
+          <li key={module.id} className="module-item">
+            <p className="module-title">{module.title}</p>
           </li>
         ))}
       </ul>
