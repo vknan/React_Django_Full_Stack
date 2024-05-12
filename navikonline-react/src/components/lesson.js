@@ -57,6 +57,17 @@ const LessonComponent = ({ courseId }) => {
     history.push(`/modules/${moduleId}`);
   };
 
+  const calculateLessonCompletion = (lessonId) => {
+    const lessonModules = modules.filter(
+      (module) => module.lesson_id === lessonId
+    );
+    if (lessonModules.length === 0) {
+      return 0; // Lesson has no modules
+    }
+    const completedModules = lessonModules.filter((module) => module.completed);
+    return (completedModules.length / lessonModules.length) * 100;
+  };
+
   return (
     <div className="lesson-container">
       <h2 className="lesson-title">{courseTitle}</h2>
@@ -73,6 +84,7 @@ const LessonComponent = ({ courseId }) => {
             onClick={() => handleLessonSelect(lesson)}
           >
             <h3>{lesson.title}</h3>
+            <p>Progress: {calculateLessonCompletion(lesson.id).toFixed(2)}%</p>
           </div>
         ))}
       </div>
