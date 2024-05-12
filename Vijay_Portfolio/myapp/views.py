@@ -98,8 +98,14 @@ class LessonDetail(generics.RetrieveUpdateDestroyAPIView):
 
 #=========================================================================================================================================
 class ModuleList(generics.ListCreateAPIView):
-    queryset = Module.objects.all()
     serializer_class = ModuleSerializer
+    def get_queryset(self):
+        queryset = Module.objects.all()
+        lesson_id = self.request.query_params.get('lesson_id')
+        if lesson_id:
+            queryset = queryset.filter(lesson_id=lesson_id)
+        return queryset
+    
 
 class ModuleDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Module.objects.all()
