@@ -16,35 +16,82 @@
 .lesson-card {
   padding: 20px;
   border-radius: 8px;
-  background-color: #f0f0f0;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .lesson-card:hover {
-  background-color: #e0e0e0;
+  filter: brightness(1.2); /* Brighten on hover */
 }
 
-.selected {
-  background-color: #c0c0c0;
+.lesson-card.selected {
+  filter: brightness(1.2) contrast(1.2); /* Brighten and increase contrast for selected lesson */
 }
 
 .module-list {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .module-item {
-  margin-bottom: 10px;
+  width: calc(33.33% - 20px); /* Adjust width for responsiveness */
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.module-item a {
-  text-decoration: none;
-  color: #663939;
+.module-item:hover {
+  filter: brightness(1.2); /* Brighten on hover */
+}
+
+/* Rainbow colors for module cards */
+.module-item:nth-child(1) {
+  background-color: #ff6666; /* Red */
+}
+
+.module-item:nth-child(2) {
+  background-color: #ff9933; /* Orange */
+}
+
+.module-item:nth-child(3) {
+  background-color: #ffcc33; /* Yellow */
+}
+
+.module-item:nth-child(4) {
+  background-color: #99ff33; /* Lime Green */
+}
+
+.module-item:nth-child(5) {
+  background-color: #66ff99; /* Green */
+}
+
+.module-item:nth-child(6) {
+  background-color: #66ffff; /* Cyan */
+}
+
+.module-item:nth-child(7) {
+  background-color: #3399ff; /* Blue */
+}
+
+.module-item:nth-child(8) {
+  background-color: #9966ff; /* Purple */
+}
+
+.module-item:nth-child(9) {
+  background-color: #ff66cc; /* Pink */
 }
 
 @media (max-width: 768px) {
   .lessons-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .module-item {
+    width: calc(50% - 20px); /* Adjust width for mobile screens */
   }
 }

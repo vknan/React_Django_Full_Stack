@@ -61,7 +61,7 @@ const LessonComponent = ({ courseId }) => {
     <div className="lesson-container">
       <h2 className="lesson-title">{courseTitle}</h2>
       <div className="lessons-grid">
-        {lessons.map((lesson) => (
+        {lessons.map((lesson, index) => (
           <div
             key={lesson.id}
             className={`lesson-card ${
@@ -69,6 +69,7 @@ const LessonComponent = ({ courseId }) => {
                 ? "selected"
                 : ""
             }`}
+            style={{ backgroundColor: `hsl(${(index * 30) % 360}, 70%, 80%)` }}
             onClick={() => handleLessonSelect(lesson)}
           >
             <h3>{lesson.title}</h3>
@@ -77,13 +78,13 @@ const LessonComponent = ({ courseId }) => {
       </div>
       <ul className="module-list">
         {modules.map((module) => (
-          <li key={module.id} className="module-item">
-            <Link
-              to={`/modules/${module.id}`}
-              onClick={() => handleModuleClick(module.id)}
-            >
-              {module.title}
-            </Link>
+          <li
+            key={module.id}
+            className="module-item"
+            onClick={() => handleModuleClick(module.id)}
+            style={{ backgroundColor: `hsl(${module.id % 360}, 70%, 80%)` }}
+          >
+            <Link to={`/modules/${module.id}`}>{module.title}</Link>
           </li>
         ))}
       </ul>
