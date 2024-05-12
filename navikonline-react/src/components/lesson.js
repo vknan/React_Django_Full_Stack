@@ -48,10 +48,8 @@ const LessonComponent = ({ courseId }) => {
     fetchModulesForLesson();
   }, [selectedLesson]);
 
-  const handleLessonChange = (e) => {
-    const lessonId = e.target.value;
-    const selected = lessons.find((lesson) => lesson.id === parseInt(lessonId));
-    setSelectedLesson(selected || null); // Set selected lesson or null if not found
+  const handleLessonSelect = (lesson) => {
+    setSelectedLesson(lesson);
   };
 
   const handleModuleClick = (moduleId) => {
@@ -62,18 +60,20 @@ const LessonComponent = ({ courseId }) => {
   return (
     <div className="lesson-container">
       <h2 className="lesson-title">{courseTitle}</h2>
-      <div>
-        <select
-          value={selectedLesson ? selectedLesson.id : ""}
-          onChange={handleLessonChange}
-        >
-          <option value="">Select a Lesson</option>
-          {lessons.map((lesson) => (
-            <option key={lesson.id} value={lesson.id}>
-              {lesson.title}
-            </option>
-          ))}
-        </select>
+      <div className="lessons-grid">
+        {lessons.map((lesson) => (
+          <div
+            key={lesson.id}
+            className={`lesson-card ${
+              selectedLesson && selectedLesson.id === lesson.id
+                ? "selected"
+                : ""
+            }`}
+            onClick={() => handleLessonSelect(lesson)}
+          >
+            <h3>{lesson.title}</h3>
+          </div>
+        ))}
       </div>
       <ul className="module-list">
         {modules.map((module) => (
