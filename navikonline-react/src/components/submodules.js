@@ -11,13 +11,13 @@ const SubmodulesComponent = ({ moduleId }) => {
     const fetchData = async () => {
       try {
         const moduleResponse = await axios.get(
-          `http://127.0.0.1:8000/api/modules/${moduleId}`
+          `https://vknan.pythonanywhere.com/api/modules/${moduleId}`
         );
         const fetchedModule = moduleResponse.data;
         setModuleInfo(fetchedModule);
 
         const submoduleResponse = await axios.get(
-          `http://127.0.0.1:8000/api/submodules/?module_id=${moduleId}`
+          `https://vknan.pythonanywhere.com/api/submodules/?module_id=${moduleId}`
         );
         const fetchedSubmodules = submoduleResponse.data;
         setSubmodules(fetchedSubmodules);
