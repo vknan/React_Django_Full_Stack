@@ -1,0 +1,64 @@
+/* lesson.css */
+
+.submodules-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.submodules-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.submodules-list {
+  list-style: none;
+  padding: 0;
+}
+
+.submodules-list li {
+  margin-bottom: 15px;
+}
+
+.submodule-title {
+  font-size: 24px;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+}
+
+.module-title {
+  margin-bottom: 10px;
+  font-size: 50px;
+}
+
+.submodule-description {
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .submodules-container {
+    padding: 10px;
+  }
+
+  .module-title {
+    font-size: 30px;
+  }
+
+  .submodule-title {
+    font-size: 20px;
+  }
+
+  .submodule-description {
+    font-size: 14px;
+  }
+}
+
+.submodules-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}

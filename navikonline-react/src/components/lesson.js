@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import "./lesson.css";
 
 const LessonComponent = ({ courseId }) => {
@@ -9,6 +9,7 @@ const LessonComponent = ({ courseId }) => {
   const [modules, setModules] = useState([]);
   const [selectedLesson, setSelectedLesson] = useState(null);
   const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchCourseAndLessons = async () => {
@@ -53,6 +54,11 @@ const LessonComponent = ({ courseId }) => {
     setSelectedLesson(selected || null); // Set selected lesson or null if not found
   };
 
+  const handleModuleClick = (moduleId) => {
+    // Navigate to a new route for displaying submodules of the selected module
+    history.push(`/modules/${moduleId}`);
+  };
+
   return (
     <div className="lesson-container">
       <h2 className="lesson-title">{courseTitle}</h2>
@@ -72,7 +78,12 @@ const LessonComponent = ({ courseId }) => {
       <ul className="module-list">
         {modules.map((module) => (
           <li key={module.id} className="module-item">
-            <p className="module-title">{module.title}</p>
+            <Link
+              to={`/modules/${module.id}`}
+              onClick={() => handleModuleClick(module.id)}
+            >
+              {module.title}
+            </Link>
           </li>
         ))}
       </ul>

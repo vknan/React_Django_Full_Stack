@@ -151,8 +151,14 @@ class ProgressDetail(generics.RetrieveUpdateDestroyAPIView):
 
 #=========================================================================================================================================
 class SubModuleList(generics.ListCreateAPIView):
-    queryset = SubModule.objects.all()
     serializer_class = SubModuleSerializer
+    def get_queryset(self):
+        queryset = SubModule.objects.all()
+        module_id = self.request.query_params.get('module_id')
+        if module_id:
+            queryset = queryset.filter(module_id=module_id)
+        return queryset
+    
 
 class SubModuleDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = SubModule.objects.all()
