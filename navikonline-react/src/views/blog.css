@@ -1,11 +1,49 @@
+/* blog.css */
+
 /* Styles for the overall blog container */
 .blog-container {
   width: 100%;
   display: flex;
-  overflow: auto;
-  min-height: 100vh;
-  align-items: center;
   flex-direction: column;
-  justify-content: flex-start;
-  /* Center the container horizontally */
+  align-items: center; /* Center content horizontally */
+  justify-content: flex-start; /* Align content at the top */
+  padding: 0px; /* Add padding around the container */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Container for blog page content and sidebar */
+.blog-page {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Limit maximum width of content */
+}
+
+/* Main content area (blog cards) */
+.blogcard-container {
+  flex: 2; /* Take two-thirds of the available space */
+  padding: 10px; /* Add spacing inside the container */
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 1; /* Take one-third of the available space */
+  padding: 10px; /* Add spacing inside the sidebar */
+  margin-top: 1%;
+  margin-bottom: auto;
+  background-color: #f0f0f0; /* Sidebar background color */
+}
+
+@media (max-width: 768px) {
+  /* Stack content vertically on smaller screens */
+  .blog-page {
+    flex-direction: column;
+  }
+
+  /* Adjust width and padding for responsive layout */
+  .blogcard-container,
+  .sidebar {
+    flex: 1; /* Each container takes full width */
+    width: 100%;
+    padding: 20px 10px; /* Adjust spacing for smaller screens */
+  }
 }

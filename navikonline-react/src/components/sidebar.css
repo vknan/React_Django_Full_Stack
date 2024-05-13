@@ -1,0 +1,57 @@
+/* Sidebar.css */
+
+.sidebar {
+  width: 100%; /* Ensure full width */
+  max-width: 300px; /* Maximum width for desktop */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the sidebar */
+  margin-bottom: 20px; /* Spacing below the sidebar */
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color on focus */
+}
+
+.sidebar h3 {
+  font-size: 1.2rem; /* Heading font size */
+  margin-bottom: 10px; /* Spacing below the heading */
+}
+
+.category-list {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+}
+
+.category-item {
+  margin-bottom: 10px; /* Spacing between category items */
+}
+
+.category-item a {
+  color: #333; /* Link color */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Link font size */
+}
+
+.category-item a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+}

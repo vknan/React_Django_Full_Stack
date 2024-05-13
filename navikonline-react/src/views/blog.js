@@ -26,21 +26,23 @@ const Blog = (props) => {
       <Email />
       <Header imageSrc1="/design-1500h.webp" />
       <Breadcrumbs />
+      <div className="blog-page">
+        {/* Use Switch and Route for conditional rendering */}
+        <Switch className="blog-switch">
+          {/* Route for displaying a single post */}
+          <Route path={`${path}/:postId`}>
+            <SinglePost />
+          </Route>
 
-      {/* Use Switch and Route for conditional rendering */}
-      <Switch>
-        {/* Route for displaying a single post */}
-        <Route path={`${path}/:postId`}>
-          <SinglePost />
-        </Route>
+          {/* Default route for displaying all posts */}
+          <Route exact path={path}>
+            <Blogcard />
 
-        {/* Default route for displaying all posts */}
-        <Route exact path={path}>
-          <Blogcard />
-          {/* <Sidebar className="sidebar-container" />
-          <Pagination className="pagination-container" /> */}
-        </Route>
-      </Switch>
+            {/* <Pagination className="pagination-container" /> */}
+          </Route>
+        </Switch>
+        <Sidebar className="sidebar" />
+      </div>
 
       <Newsletter />
       <Footer />
