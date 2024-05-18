@@ -65,3 +65,53 @@
   border-radius: 5px;
   background-color: #f9f9f9;
 }
+
+/* BlockQuote */
+blockquote {
+  padding: 1.5em 2em;
+  margin: 1.5em 0;
+  border-left: 5px solid #007acc;
+  background-color: #f9f9f9;
+  color: #333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+blockquote::before {
+  content: open-quote;
+  font-size: 4em;
+  color: #007acc;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+blockquote::after {
+  content: close-quote;
+  font-size: 4em;
+  color: #007acc;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+h3 {
+  color: #007acc;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+ul li {
+  margin-bottom: 0.5em;
+}
