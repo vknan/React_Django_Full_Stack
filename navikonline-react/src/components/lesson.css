@@ -39,7 +39,7 @@
 }
 
 .module-item {
-  font-size: 1em;
+  font-size: 0.75em;
   width: calc(33.33% - 20px); /* Adjust width for responsiveness */
   padding: 20px;
   border-radius: 8px;
