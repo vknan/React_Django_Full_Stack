@@ -13,15 +13,17 @@ import Blog from "./views/blog";
 import LessonsPage from "./views/lesson";
 import NotFound from "./views/not-found";
 import SubmodulesPage from "./views/submodules";
-
+import Appview from "./views/authview";
 const App = () => {
   return (
     <Router>
       <Switch>
         <Route component={Home} exact path="/" />
         <Route component={Blog} path="/blog" />
+        <Route component={Appview} path="/auth" />
         <Route component={LessonsPage} path="/lessons/:courseId/:lessonId" />
         <Route component={SubmodulesPage} path="/modules/:moduleId" />
+
         <Route component={NotFound} path="*" />
 
         {/* <Redirect to="**" /> */}

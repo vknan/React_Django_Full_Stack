@@ -23,7 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('myapp.urls')),  
-    path('newsletter/', include('newsletters.urls')), 
+    path('newsletter/', include('newsletters.urls')),
+    path('auth/', include('authentication.urls')), 
     # path('', include('cms.urls')), 
     # path('accounts/', include('django.contrib.auth.urls')),
     # re_path(r'^download/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT}),

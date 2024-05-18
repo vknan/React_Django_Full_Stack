@@ -1,0 +1,24 @@
+/* CSS for Profile Component */
+
+/* Container for the profile details */
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Styling for profile details */
+.profile-details {
+  margin-top: 20px;
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 600px) {
+  .profile-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+}

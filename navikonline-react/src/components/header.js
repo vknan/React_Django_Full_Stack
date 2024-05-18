@@ -68,8 +68,12 @@ const Header = (props) => {
         </div>
 
         <div className="header-btn-group">
-          <button className="header-login button">{props.login}</button>
-          <button className="button">{props.register}</button>
+          <button className="header-login button">
+            <Link to="/auth">{props.login}</Link>
+          </button>
+          <button className="button">
+            <Link to="/auth">{props.register}</Link>
+          </button>
         </div>
 
         <div className="header-burger-menu" onClick={handleToggleMobileMenu}>
@@ -91,8 +95,8 @@ const Header = (props) => {
             </Link>
             <Link to="/blog">{props.text3}</Link>
             <Link to="/contact">{props.text4}</Link>
-            <Link to="/login">{props.login}</Link>
-            <Link to="/register">{props.register}</Link>
+            <Link to="/auth">{props.login}</Link>
+            <Link to="/auth">{props.register}</Link>
           </>
         </nav>
       )}
