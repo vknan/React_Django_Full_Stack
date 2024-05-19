@@ -88,6 +88,7 @@ const LessonComponent = ({ courseId }) => {
           </div>
         ))}
       </div>
+      <hr></hr> {/* Add horizontal line after lesson names */}
       <ul className="module-list">
         {modules.map((module) => (
           <li

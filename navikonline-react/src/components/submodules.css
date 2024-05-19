@@ -1,4 +1,73 @@
-/* lesson.css */
+/* Headings */
+h3 {
+  color: #007acc; /* Distinct color for headings */
+  font-size: 1em; /* Larger font size for prominence */
+  margin-bottom: 0.5em; /* Spacing below heading */
+  font-weight: bold; /* Bold text */
+  line-height: 1.2; /* Tighter line height for headings */
+  text-align: left; /* Align left */
+  font-family: "Helvetica", sans-serif;
+}
+
+/* Unordered Lists */
+ul {
+  margin-left: 20px; /* Indentation for lists */
+  margin-bottom: 1em; /* Spacing below lists */
+  font-size: 1.1em; /* Match font size with paragraphs */
+  color: #444; /* Match text color with paragraphs */
+  font-family: "Georgia", serif;
+  line-height: 1.5;
+  list-style-type: disc;
+}
+
+ul li {
+  margin-bottom: 0.5em; /* Spacing between list items */
+  line-height: 1.5; /* Comfortable line height for list items */
+}
+
+ul li::marker {
+  color: #007acc; /* Colored markers for list items */
+}
+
+/* Blockquotes */
+blockquote {
+  padding: 1.5em 2em;
+  margin: 1.5em 0;
+  border-left: 5px solid #007acc;
+  background-color: #f9f9f9;
+  color: #333;
+  font-family: "Georgia", serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  font-style: italic; /* Italicized text */
+  position: relative;
+  overflow: hidden;
+  font-style: italic;
+}
+
+blockquote::before {
+  content: open-quote;
+  font-size: 4em;
+  color: #007acc;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+blockquote::after {
+  content: close-quote;
+  font-size: 4em;
+  color: #007acc;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* submodules.css */
 
 .submodules-container {
   width: 100%;
@@ -65,112 +134,3 @@
   border-radius: 5px;
   background-color: #f9f9f9;
 }
-
-/* BlockQuote */
-blockquote {
-  padding: 1.5em 2em;
-  margin: 1.5em 0;
-  border-left: 5px solid #007acc;
-  background-color: #f9f9f9;
-  color: #333;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.1em;
-  line-height: 1.6;
-  position: relative;
-  overflow: hidden;
-  font-style: italic;
-}
-
-blockquote::before {
-  content: open-quote;
-  font-size: 4em;
-  color: #007acc;
-  position: absolute;
-  top: -10px;
-  left: 10px;
-}
-
-blockquote::after {
-  content: close-quote;
-  font-size: 4em;
-  color: #007acc;
-  position: absolute;
-  bottom: -10px;
-  right: 10px;
-}
-
-blockquote p {
-  margin: 0;
-}
-
-h3 {
-  color: #007acc;
-  font-size: 1em;
-  margin-bottom: 0.5em;
-}
-
-ul {
-  margin-left: 20px;
-}
-
-ul li {
-  margin-bottom: 0.5em;
-}
-
-/* Code Block */
-pre code {
-  display: block;
-  padding: 1em;
-  margin: 1.5em 0;
-  overflow-x: auto;
-  background: #2d2d2d; /* Dark background for contrast */
-  color: #f8f8f2; /* Light text for readability */
-  font-family: "Source Code Pro", monospace; /* Monospaced font */
-  font-size: 1em; /* Standard font size */
-  border-radius: 5px; /* Rounded corners */
-  line-height: 1.5; /* Improved readability */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Code Inline */
-code {
-  background: #f1f1f1; /* Light background for inline code */
-  color: #c7254e; /* Text color */
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-family: "Source Code Pro", monospace;
-  font-size: 0.9em;
-}
-
-/* Highlighting Specific Parts */
-pre code .highlight {
-  background: #44475a; /* Background for highlighted text */
-  color: #f1fa8c; /* Text color for highlighted text */
-}
-
-/* Line Numbers */
-pre.line-numbers {
-  position: relative;
-  padding-left: 3.8em; /* Space for line numbers */
-}
-
-pre.line-numbers code {
-  position: relative;
-}
-
-pre.line-numbers code::before {
-  content: attr(data-line-number);
-  position: absolute;
-  left: 0;
-  width: 3.2em; /* Width of line numbers */
-  background: #2d2d2d; /* Match background */
-  color: #888; /* Line number color */
-  text-align: right;
-  padding-right: 0.8em;
-  font-size: 0.9em; /* Smaller font for line numbers */
-  line-height: 1.5;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* Code Block */

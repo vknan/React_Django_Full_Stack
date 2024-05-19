@@ -29,6 +29,12 @@ const SinglePost = () => {
     fetchPost();
   }, [postId]);
 
+  useEffect(() => {
+    if (!loading) {
+      window.scrollTo(0, 0);
+    }
+  }, [loading]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
