@@ -18,7 +18,6 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  position: relative;
 }
 
 .lesson-card:hover {
@@ -32,28 +31,20 @@
 .module-list {
   list-style: none;
   padding: 0;
-  margin: 10px 0 0 0; /* Adjusted for better positioning */
-  position: absolute; /* Absolute positioning to align with the lesson card */
-  width: 100%; /* Full width of the lesson card */
-  left: 0; /* Align to the left of the lesson card */
-  top: 100%; /* Position below the lesson card */
-  background-color: white; /* Background color for dropdown */
-  border: 1px solid #ccc; /* Border for dropdown */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Shadow for dropdown */
-  z-index: 1; /* Ensure it's above other content */
+  margin: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .module-item {
-  font-size: 0.875em;
-  padding: 10px 20px; /* Adjust padding for better appearance */
-  border-bottom: 1px solid #eee; /* Separator between module items */
+  font-size: 0.75em;
+  width: calc(33.33% - 20px); /* Adjust width for responsiveness */
+  padding: 20px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.module-item:last-child {
-  border-bottom: none; /* Remove border for the last item */
 }
 
 .module-item:hover {
@@ -100,6 +91,10 @@
 @media (max-width: 768px) {
   .lessons-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .module-item {
+    width: calc(50% - 20px); /* Adjust width for mobile screens */
   }
 }
 

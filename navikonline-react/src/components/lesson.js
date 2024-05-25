@@ -8,7 +8,6 @@ const LessonComponent = ({ courseId }) => {
   const [lessons, setLessons] = useState([]);
   const [modules, setModules] = useState([]);
   const [selectedLesson, setSelectedLesson] = useState(null);
-  const [hoveredLesson, setHoveredLesson] = useState(null);
   const location = useLocation();
   const history = useHistory();
 
@@ -50,9 +49,7 @@ const LessonComponent = ({ courseId }) => {
   }, [selectedLesson]);
 
   const handleLessonSelect = (lesson) => {
-    setSelectedLesson((prevSelectedLesson) =>
-      prevSelectedLesson && prevSelectedLesson.id === lesson.id ? null : lesson
-    );
+    setSelectedLesson(lesson);
   };
 
   const handleModuleClick = (moduleId) => {
@@ -71,31 +68,6 @@ const LessonComponent = ({ courseId }) => {
     return (completedModules.length / lessonModules.length) * 100;
   };
 
-  const fetchModulesForHoveredLesson = async (lessonId) => {
-    try {
-      const modulesResponse = await axios.get(
-        `https://vknan.pythonanywhere.com/api/modules/?lesson_id=${lessonId}`
-      );
-      return modulesResponse.data;
-    } catch (error) {
-      console.error("Error fetching modules:", error);
-      return [];
-    }
-  };
-
-  const handleMouseEnter = async (lesson) => {
-    setHoveredLesson(lesson);
-    const fetchedModules = await fetchModulesForHoveredLesson(lesson.id);
-    setModules(fetchedModules);
-  };
-
-  const handleMouseLeave = () => {
-    if (!selectedLesson) {
-      setHoveredLesson(null);
-      setModules([]);
-    }
-  };
-
   return (
     <div className="lesson-container">
       <h2 className="lesson-title">{courseTitle}</h2>
@@ -110,32 +82,25 @@ const LessonComponent = ({ courseId }) => {
             }`}
             style={{ backgroundColor: `hsl(${(index * 30) % 360}, 70%, 80%)` }}
             onClick={() => handleLessonSelect(lesson)}
-            onMouseEnter={() => handleMouseEnter(lesson)}
-            onMouseLeave={handleMouseLeave}
           >
             <h3>{lesson.title}</h3>
             <p>Progress: {calculateLessonCompletion(lesson.id).toFixed(2)}%</p>
-            {(hoveredLesson && hoveredLesson.id === lesson.id) ||
-            (selectedLesson && selectedLesson.id === lesson.id) ? (
-              <ul className="module-list">
-                {modules.map((module) => (
-                  <li
-                    key={module.id}
-                    className="module-item"
-                    onClick={() => handleModuleClick(module.id)}
-                    style={{
-                      backgroundColor: `hsl(${module.id % 360}, 70%, 80%)`,
-                    }}
-                  >
-                    <Link to={`/modules/${module.id}`}>{module.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
           </div>
         ))}
       </div>
-      <hr /> {/* Add horizontal line after lesson names */}
+      <hr></hr> {/* Add horizontal line after lesson names */}
+      <ul className="module-list">
+        {modules.map((module) => (
+          <li
+            key={module.id}
+            className="module-item"
+            onClick={() => handleModuleClick(module.id)}
+            style={{ backgroundColor: `hsl(${module.id % 360}, 70%, 80%)` }}
+          >
+            <Link to={`/modules/${module.id}`}>{module.title}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
