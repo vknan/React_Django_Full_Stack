@@ -59,8 +59,9 @@ urlpatterns = [
     path('accounts/login/', views.login_functionality.login, name = 'login'),
     # path('logout/', views.login_functionality.logout, name = 'logout'),
     path('customlogout/', views.login_functionality.customlogout, name='customlogout'),
-    
+   
     path('Computer_Science_Fundamentals/', views.pages.post_CSF, name='post_CSF'),
+
     # path('analytics/', views.pages.analytics_view, name='user-analytics'),
     path('', views.pages.home, name = 'home'),
     path('about/', views.pages.about, name = 'about'),

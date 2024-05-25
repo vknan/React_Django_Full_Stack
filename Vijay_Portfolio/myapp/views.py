@@ -11,8 +11,7 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseServerError
 from rest_framework import generics
 from .serializers import *
-from django.views.decorators.http import require_POST
-
+from django.utils import timezone
 
 import os
 # from payu import PayUmoneySdk
@@ -125,6 +124,7 @@ class EnrollmentList(generics.ListCreateAPIView):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
 
+
 class EnrollmentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
@@ -164,6 +164,8 @@ class SubModuleDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = SubModule.objects.all()
     serializer_class = SubModuleSerializer
 #=========================================================================================================================================
+
+
 #=========================================================================================================================================
 #=========================================================================================================================================
 #=========================================================================================================================================

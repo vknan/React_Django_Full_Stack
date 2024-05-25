@@ -14,7 +14,13 @@ const Login = () => {
 
     AuthService.login(username, password).then(
       () => {
-        history.push("/auth/profile");
+        const courseId = localStorage.getItem("courseToEnroll");
+        if (courseId) {
+          localStorage.removeItem("courseToEnroll");
+          history.push(`/lessons/${courseId}/1`);
+        } else {
+          history.push("/auth/profile");
+        }
       },
       (error) => {
         setMessage("Error: " + error.response.data.detail);

@@ -30,6 +30,10 @@ const login = (username, password) => {
           .then((userResponse) => {
             console.log("User details fetched: ", userResponse.data); // Debug log
             localStorage.setItem("user", JSON.stringify(userResponse.data));
+
+            // Trigger the login event
+            window.dispatchEvent(new Event("userLoggedIn"));
+
             return userResponse.data;
           })
           .catch((error) => {

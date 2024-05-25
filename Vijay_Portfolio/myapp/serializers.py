@@ -78,8 +78,8 @@ class QuizSerializer(serializers.ModelSerializer):
         fields = '__all__' 
 
 class EnrollmentSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
-    course = CourseSerializer()
+    # user = UserSerializer()
+    # course = CourseSerializer()
     class Meta:
         model = Enrollment
         fields = '__all__'
