@@ -14,6 +14,9 @@ const Profile = () => {
       <h3>Profile</h3>
       <div className="profile-details">
         <div>
+          <strong>ID:</strong> {currentUser.id}
+        </div>
+        <div>
           <strong>Username:</strong> {currentUser.username}
         </div>
         <div>

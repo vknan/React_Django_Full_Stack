@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 # Create your views here.
 from django.http import JsonResponse
 from django.conf import settings
@@ -12,9 +12,19 @@ from django.http import HttpResponse, HttpResponseServerError
 from rest_framework import generics
 from .serializers import *
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 import os
-# from payu import PayUmoneySdk
+import json
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 #=========================================================================================================================================
 class CourseList(generics.ListCreateAPIView):
@@ -123,12 +133,80 @@ class QuizDetail(generics.RetrieveUpdateDestroyAPIView):
 class EnrollmentList(generics.ListCreateAPIView):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
+    def get_queryset(self):
+        queryset = Enrollment.objects.all()
+        user_id = self.request.query_params.get('user_id')
+        course_id = self.request.query_params.get('course_id')
+        if user_id:
+            queryset = queryset.filter(user_id=user_id)
+        if course_id:
+            queryset = queryset.filter(course_id=course_id)
+        return queryset
 
 
+
+@method_decorator(csrf_exempt, name='dispatch')
+def enroll_course(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            logger.info(f'Received data: {data}')  # Log the received data
+            user_id = data.get('user_id')
+            course_id = data.get('course_id')
+            print(user_id, course_id)
+
+            if not user_id or not course_id:
+                logger.error('User ID and Course ID are required')
+                return JsonResponse({'error': 'User ID and Course ID are required'}, status=400)
+
+            enrollment, created = Enrollment.objects.get_or_create(
+                user_id=user_id, 
+                course_id=course_id
+            )
+            enrollment.enrolled = True
+            enrollment.save()
+            return JsonResponse({'message': 'Enrolled successfully'}, status=200)
+        except json.JSONDecodeError:
+            logger.error('Invalid JSON received')
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+        except Exception as e:
+            logger.error(f'Error: {str(e)}')
+            return JsonResponse({'error': str(e)}, status=500)
+
+    logger.error('Invalid request method')
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
+
+class unenroll(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request):
+        data = json.loads(request.body)
+        user_id = data.get('user_id')
+        course_id =data.get('course_id')
+        if not user_id or not course_id:
+            return Response({"error": "Course ID & User ID are required."}, status=status.HTTP_400_BAD_REQUEST)
+        print(user_id, course_id)
+        
+        enrollment = Enrollment.objects.filter(user=user_id, course=course_id).first()
+
+        if not enrollment:
+            return Response({"error": "Enrollment not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        enrollment.enrolled = False
+        enrollment.save()
+        return Response({"message": "Unenrolled successfully."}, status=status.HTTP_200_OK)
+    
 class EnrollmentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
+    
+class UserEnrollments(APIView):
+    permission_classes = [IsAuthenticated]
 
+    def get(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        enrollments = Enrollment.objects.filter(user=user, enrolled=True)
+        enrolled_courses = [enrollment.course.id for enrollment in enrollments]
+        return Response(enrolled_courses, status=status.HTTP_200_OK)
 #=========================================================================================================================================
 
 class DiscussionPostList(generics.ListCreateAPIView):

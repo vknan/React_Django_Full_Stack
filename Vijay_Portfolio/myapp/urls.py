@@ -45,8 +45,10 @@ urlpatterns = [
     
 
     path('api/enrollments/', views.EnrollmentList.as_view(), name='enrollments-list'),
+    path('api/enroll/', views.enroll_course, name='enroll_course'),
+    path('api/unenroll/', views.unenroll.as_view(), name='unenroll_course'),
     path('api/enrollments/<int:pk>', views.EnrollmentDetail.as_view(), name='enrollments-detail'),
-    
+    path('api/enrolled-courses/<int:pk>/', views.UserEnrollments.as_view(), name='user-enrolled-courses'),
 
     path('api/discussionposts/', views.DiscussionPostList.as_view(), name='discussionpost-list'),
     path('api/discussionposts/<int:pk>', views.DiscussionPostDetail.as_view(), name='discussionpost-detail'),

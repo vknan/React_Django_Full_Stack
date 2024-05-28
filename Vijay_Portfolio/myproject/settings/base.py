@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     # 'sekizai',
     # "MyAppConfig",
 ]
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+
 SITE_ID = 1
 CORS_ALLOWED_ORIGINS = [
     'https://www.navikonline.in',
@@ -283,6 +286,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
 }
 
 from datetime import timedelta

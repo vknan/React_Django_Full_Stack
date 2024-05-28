@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://vknan.pythonanywhere.com/auth/";
+const API_URL = "http://127.0.0.1:8000/auth/";
 
 const register = (username, email, password) => {
   return axios.post(API_URL + "register/", {
@@ -29,12 +29,16 @@ const login = (username, password) => {
           })
           .then((userResponse) => {
             console.log("User details fetched: ", userResponse.data); // Debug log
-            localStorage.setItem("user", JSON.stringify(userResponse.data));
+            const userData = {
+              ...userResponse.data,
+              id: userResponse.data.id,
+            }; // Add user_id to user data
+            localStorage.setItem("user", JSON.stringify(userData));
 
             // Trigger the login event
             window.dispatchEvent(new Event("userLoggedIn"));
 
-            return userResponse.data;
+            return userData;
           })
           .catch((error) => {
             console.error("Error fetching user details: ", error); // Debug log
