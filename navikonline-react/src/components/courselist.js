@@ -61,7 +61,7 @@ const CourseList = () => {
         throw new Error("No tokens found");
       }
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/enrolled-courses/${userId}/`,
+        `https://vknan.pythonanywhere.com/api/enrolled-courses/${userId}/`,
         {
           headers: {
             Authorization: `Bearer ${tokens.access}`,
@@ -84,7 +84,7 @@ const CourseList = () => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/enroll/",
+        "https://vknan.pythonanywhere.com/api/enroll/",
         {
           user_id: currentUser.id,
           course_id: courseId,
@@ -115,7 +115,7 @@ const CourseList = () => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/unenroll/",
+        "https://vknan.pythonanywhere.com/api/unenroll/",
         {
           user_id: currentUser.id,
           course_id: courseId,

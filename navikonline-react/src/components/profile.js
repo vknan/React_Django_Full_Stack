@@ -13,9 +13,9 @@ const Profile = () => {
     <div className="profile-container">
       <h3>Profile</h3>
       <div className="profile-details">
-        <div>
+        {/* <div>
           <strong>ID:</strong> {currentUser.id}
-        </div>
+        </div> */}
         <div>
           <strong>Username:</strong> {currentUser.username}
         </div>
