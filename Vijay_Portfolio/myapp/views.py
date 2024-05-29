@@ -211,7 +211,7 @@ class UserEnrollments(APIView):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
     
-
+    
     def get(self, request, pk):
         user = get_object_or_404(User, pk=pk)
         enrollments = Enrollment.objects.filter(user=user, enrolled=True)

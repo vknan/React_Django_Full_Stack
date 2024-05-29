@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./courselist.css"; // Import CSS file for card styling
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../services/auth";
 
@@ -11,15 +11,25 @@ const CourseList = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [enrolledCourses, setEnrolledCourses] = useState(new Set());
   const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
+    // Fetch lessons initially
     fetchLessons();
+    // Get current user and fetch enrolled courses
     const user = AuthService.getCurrentUser();
     setCurrentUser(user);
     if (user) {
       fetchEnrolledCourses(user.id);
     }
   }, []);
+
+  useEffect(() => {
+    // Check if returning from login page and enroll in the course if redirected
+    if (location.state && location.state.enrollCourseId) {
+      handleEnroll(location.state.enrollCourseId);
+    }
+  }, [location.state]);
 
   const fetchLessons = async () => {
     try {
@@ -34,6 +44,7 @@ const CourseList = () => {
       const uniqueCourseIds = new Set();
       const limitedCourses = [];
 
+      // Loop through lessons data to collect unique course titles and limit to 4 unique courses
       data.forEach((lesson) => {
         const courseId = lesson.course.id;
         if (!uniqueCourseIds.has(courseId) && limitedCourses.length < 4) {
@@ -57,9 +68,6 @@ const CourseList = () => {
   const fetchEnrolledCourses = async (userId) => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      if (!tokens || !tokens.access) {
-        throw new Error("No tokens found");
-      }
       const response = await axios.get(
         `https://vknan.pythonanywhere.com/api/enrolled-courses/${userId}/`,
         {
@@ -68,8 +76,10 @@ const CourseList = () => {
           },
         }
       );
-      const enrolledCoursesSet = new Set(response.data);
-      setEnrolledCourses(enrolledCoursesSet);
+      const enrolledCourseIds = response.data.map(
+        (enrollment) => enrollment.course.id
+      );
+      setEnrolledCourses(new Set(enrolledCourseIds));
     } catch (error) {
       console.error("Error fetching enrolled courses:", error);
     }
@@ -77,7 +87,7 @@ const CourseList = () => {
 
   const handleEnroll = async (courseId) => {
     if (!currentUser) {
-      history.push("/auth/login");
+      history.push("/auth/login", { enrollCourseId: courseId });
       return;
     }
 
@@ -108,7 +118,7 @@ const CourseList = () => {
 
   const handleUnenroll = async (courseId) => {
     if (!currentUser) {
-      history.push("/auth/login");
+      history.push("/auth/login", { enrollCourseId: courseId });
       return;
     }
 
