@@ -61,7 +61,7 @@ const CourseList = () => {
         throw new Error("No tokens found");
       }
       const response = await axios.get(
-        `https://vknan.pythonanywhere.com/api/enrolled-courses/${userId}/`,
+        `https://navikonline.in/api/enrolled-courses/${userId}/`,
         {
           headers: {
             Authorization: `Bearer ${tokens.access}`,

@@ -144,7 +144,11 @@ class EnrollmentList(generics.ListCreateAPIView):
         return queryset
 
 
-
+# class enroll(APIView):
+#     permission_classes = [IsAuthenticated]
+#     queryset = Enrollment.objects.all()
+#     serializer_class = EnrollmentSerializer
+    
 @method_decorator(csrf_exempt, name='dispatch')
 def enroll_course(request):
     if request.method == 'POST':
@@ -178,6 +182,9 @@ def enroll_course(request):
 
 class unenroll(APIView):
     permission_classes = [IsAuthenticated]
+    queryset = Enrollment.objects.all()
+    serializer_class = EnrollmentSerializer
+    
     def post(self, request):
         data = json.loads(request.body)
         user_id = data.get('user_id')
@@ -201,6 +208,9 @@ class EnrollmentDetail(generics.RetrieveUpdateDestroyAPIView):
     
 class UserEnrollments(APIView):
     permission_classes = [IsAuthenticated]
+    queryset = Enrollment.objects.all()
+    serializer_class = EnrollmentSerializer
+    
 
     def get(self, request, pk):
         user = get_object_or_404(User, pk=pk)
