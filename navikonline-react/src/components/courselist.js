@@ -125,7 +125,7 @@ const CourseList = () => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const response = await axios.post(
-        "https://vknan.pythonanywhere.com/api/unenroll/",
+        "http://127.0.0.1:8000/api/unenroll/",
         {
           user_id: currentUser.id,
           course_id: courseId,
