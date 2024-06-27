@@ -172,6 +172,14 @@ const CourseList = () => {
             >
               {enrolledCourses.has(course.id) ? "Unenroll" : "Enroll Now"}
             </button>
+            <div className="course-price">
+              <a
+                href="https://www.paypal.com/ncp/payment/LBK9QWU9C7P3Y"
+                className="pay-now-button"
+              >
+                Pay Now
+              </a>
+            </div>
           </div>
         ))}
       </div>
