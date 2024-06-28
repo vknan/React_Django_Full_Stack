@@ -177,7 +177,7 @@ const CourseList = () => {
                 href="https://www.paypal.com/ncp/payment/LBK9QWU9C7P3Y"
                 className="pay-now-button"
               >
-                Pay Now
+                Donate Now For This Course
               </a>
             </div>
           </div>
