@@ -282,8 +282,7 @@ class ckeditor_5_upload_file_view():
 
             # Construct the URL to access the uploaded file publicly
             public_url = settings.MEDIA_URL + file_path  # Full URL starting from MEDIA_URL
-            print("Hi")
-            print(full_file_path)
+            
             # Return a JSON response with the uploaded file details
             return JsonResponse({'uploaded': True, 'url': public_url})
 

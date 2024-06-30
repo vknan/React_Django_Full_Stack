@@ -10,6 +10,7 @@
     "@lottiefiles/react-lottie-player": "3.4.7",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
+    "html-react-parser": "^5.1.10",
     "postcss": "^8.4.38",
     "prop-types": "15.7.2",
     "prosemirror-commands": "^1.5.2",
@@ -25,7 +26,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sanitize-html": "^2.13.0"
   },
   "scripts": {
     "start": "craco start",

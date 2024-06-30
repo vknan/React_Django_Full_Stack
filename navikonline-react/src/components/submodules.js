@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./submodules.css";
+import SubmoduleDescription from "./submoduledescription";
 
 const SubmodulesComponent = ({ moduleId }) => {
   const [moduleInfo, setModuleInfo] = useState(null);
   const [submodules, setSubmodules] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const baseUrl = "https://vknan.pythonanywhere.com"; // Update this to your actual base URL
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,10 +46,10 @@ const SubmodulesComponent = ({ moduleId }) => {
         {submodules.map((submodule) => (
           <li key={submodule.id}>
             <strong className="submodule-title">{submodule.title}</strong> -{" "}
-            <div
-              className="submodule-description"
-              dangerouslySetInnerHTML={{ __html: submodule.description }}
-            ></div>
+            <SubmoduleDescription
+              description={submodule.description}
+              baseUrl={baseUrl}
+            />
           </li>
         ))}
       </ul>
