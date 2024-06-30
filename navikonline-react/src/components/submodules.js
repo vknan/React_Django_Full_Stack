@@ -47,6 +47,7 @@ const SubmodulesComponent = ({ moduleId }) => {
           <li key={submodule.id}>
             <strong className="submodule-title">{submodule.title}</strong> -{" "}
             <SubmoduleDescription
+              className="submodule-description"
               description={submodule.description}
               baseUrl={baseUrl}
             />
